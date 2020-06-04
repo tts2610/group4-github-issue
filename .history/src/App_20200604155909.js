@@ -3,7 +3,6 @@ import "./App.css";
 import IssuesTable from "./components/IssuesTable";
 
 const clientId = process.env.REACT_APP_CLIENT_ID;
-const postURL = "https://github.com/tts2610/group4-github-issue/issues";
 
 function App() {
   const [token, setToken] = useState(null);
@@ -45,7 +44,7 @@ function App() {
 
   const postNewIssues = async () => {
     const issue = { title: "here is the issue", body: "help me fix this" };
-    const url = postURL;
+    const url = `https://api.github.com/repos/SmithLam/tic-tac-toe-smithl/issues`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
