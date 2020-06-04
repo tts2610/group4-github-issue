@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-<<<<<<< HEAD
 import AlyssaModal from "./components/AlyssaModal";
-=======
 import IssuesTable from "./components/IssuesTable";
->>>>>>> c60c2675560c3364e1b1fe056462216875d062a5
 
 const clientId = process.env.REACT_APP_CLIENT_ID;
-const postURL = "https://github.com/tts2610/group4-github-issue/issues";
+
+
+// const postURL = "https://github.com/tts2610/group4-github-issue/issues";
+const postURL = "https://api.github.com/repos/tts2610/group4-github-issue/issues"
 
 function App() {
   const [token, setToken] = useState(null);
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const getToken = () => {
     const existingToken = localStorage.getItem("token"); //if we already have token from localStorage just get that
@@ -47,8 +50,8 @@ function App() {
     console.log("what is result", result);
   };
 
-  const postNewIssues = async () => {
-    const issue = { title: "here is the issue", body: "help me fix this" };
+  const postNewIssues = async (title, body) => {
+    const issue = { title: title, body: body};
     const url = postURL;
     const response = await fetch(url, {
       method: "POST",
@@ -59,6 +62,7 @@ function App() {
       body: JSON.stringify(issue),
     });
     console.log("what is response", response);
+    handleClose()
   };
 
   useEffect(() => {
@@ -69,8 +73,8 @@ function App() {
     <div>
       {console.log("What is token", token)}
       <button onClick={() => getIssues()}>Search</button>
-      <button onClick={() => postNewIssues()}>Post</button>
-      <AlyssaModal postNewIssues={postNewIssues}/>
+      <button onClick={ postNewIssues}>Post</button>
+      <AlyssaModal postNewIssues={postNewIssues} handleClose={handleClose} handleShow={handleShow} show={show}/>
       <IssuesTable />
     </div>
   );
