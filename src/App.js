@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import IssuesTable from "./components/IssuesTable";
+import NavigationBar from "./components/NavigationBar"
 
 const clientId = process.env.REACT_APP_CLIENT_ID;
 const postURL = "https://github.com/tts2610/group4-github-issue/issues";
