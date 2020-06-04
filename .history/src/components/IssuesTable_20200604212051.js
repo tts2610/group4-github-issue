@@ -22,9 +22,15 @@ export default class IssuesTable extends Component {
         <Container>
           <ul className="list-group mb-3">
             <li className="list-group-item bg-light">
+              {/* <div>
+                <span>
+                  <h6 className="my-0">502 Open</h6>
+                </span>
+                <span className="text-muted">8,716 Closed</span>
+              </div> */}
               <Row>
                 <Col sm={6}>
-                  <i className="fal fa-exclamation-circle mr-3"></i>
+                  <i className="fal fa-exclamation-circle mr-5"></i>
                   <span>502 Open</span>
                   <span className="text-muted ml-4">8,716 Closed</span>
                 </Col>
@@ -39,6 +45,27 @@ export default class IssuesTable extends Component {
                   </div>
                 </Col>
               </Row>
+            </li>
+            <li className="list-group-item lh-condensed issue">
+              <Row>
+                <Col sm={1}>
+                  <i className="fal fa-exclamation-circle mr-2"></i>
+                </Col>
+                <Col sm={10}>
+                  <h6 className="my-0">
+                    Bug: TypeError: Object(...) is not a function
+                  </h6>
+                  <small className="text-muted">
+                    #19073 opened 3 hours ago by chwasiq0569
+                  </small>
+                </Col>
+                <Col sm={1}>
+                  <span className="text-muted">
+                    <i class="fal fa-comment-alt">3</i>
+                  </span>
+                </Col>
+              </Row>
+              {/* <span className="text-muted">$8</span> */}
             </li>
           </ul>
         </Container>

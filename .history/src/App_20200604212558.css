@@ -78,19 +78,13 @@
 }
 
 .issueCommentNumber {
-    font-size: 13px;
-    font-weight: bolder;
-}
-
-.issueCommentIcon {
-    font-weight: 500 !important;
+    font-size: 15px;
 }
 
 .commentIssue {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    font-weight: 500;
 }
 
 

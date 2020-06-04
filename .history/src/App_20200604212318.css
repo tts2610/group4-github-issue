@@ -77,20 +77,8 @@
     }
 }
 
-.issueCommentNumber {
-    font-size: 13px;
-    font-weight: bolder;
-}
-
-.issueCommentIcon {
-    font-weight: 500 !important;
-}
-
-.commentIssue {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    font-weight: 500;
+.issueComment {
+    font-size: 15px;
 }
 
 
