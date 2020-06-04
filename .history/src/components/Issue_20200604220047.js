@@ -1,6 +1,6 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
-import Moment from "react-moment";
+import { Table, Container, Row, Col } from "react-bootstrap";
+import moment from "moment";
 export default function Issue({ issue }) {
   return (
     <>
@@ -13,15 +13,14 @@ export default function Issue({ issue }) {
             <span>
               <h6 className="my-0">{issue.title}</h6>
               <small className="text-muted">
-                #{issue.number} opened{" "}
-                <Moment fromNow>{issue.created_at}</Moment> by{" "}
+                #{issue.number} opened {moment(issue.created_at)} by{" "}
                 {issue.user.login}
               </small>
             </span>
           </Col>
           <Col sm={1}>
             <span className="text-muted commentIssue">
-              <i className="fal fa-comment-alt fa-sm-x2 issueCommentIcon"></i>
+              <i class="fal fa-comment-alt fa-sm-x2 issueCommentIcon"></i>
               <span className="issueCommentNumber">{issue.comments}</span>
             </span>
           </Col>

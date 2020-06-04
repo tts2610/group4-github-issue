@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Table, Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import Issue from "./Issue";
@@ -47,8 +47,9 @@ export default class IssuesTable extends Component {
                 </Col>
               </Row>
             </li>
-            {this.state.issueList.map(function (issue, index) {
-              return <Issue key={index} issue={issue} />;
+            {this.state.issueList.map(function (issue) {
+              console.log(issue);
+              return <Issue issue={issue} />;
             })}
           </ul>
         </Container>

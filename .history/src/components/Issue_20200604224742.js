@@ -21,7 +21,7 @@ export default function Issue({ issue }) {
           </Col>
           <Col sm={1}>
             <span className="text-muted commentIssue">
-              <i className="fal fa-comment-alt fa-sm-x2 issueCommentIcon"></i>
+              <i class="fal fa-comment-alt fa-sm-x2 issueCommentIcon"></i>
               <span className="issueCommentNumber">{issue.comments}</span>
             </span>
           </Col>
