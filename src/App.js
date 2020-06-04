@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import AlyssaModal from "./components/AlyssaModal";
 
 const clientId = process.env.REACT_APP_CLIENT_ID;
 
@@ -64,6 +65,7 @@ function App() {
       {console.log("What is token", token)}
       <button onClick={() => getIssues()}>Search</button>
       <button onClick={() => postNewIssues()}>Post</button>
+      <AlyssaModal postNewIssues={postNewIssues}/>
     </div>
   );
 }
