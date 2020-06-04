@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-<<<<<<< HEAD
-import AlyssaModal from "./components/AlyssaModal";
-=======
 import IssuesTable from "./components/IssuesTable";
->>>>>>> c60c2675560c3364e1b1fe056462216875d062a5
 
 const clientId = process.env.REACT_APP_CLIENT_ID;
 const postURL = "https://github.com/tts2610/group4-github-issue/issues";
@@ -70,7 +66,6 @@ function App() {
       {console.log("What is token", token)}
       <button onClick={() => getIssues()}>Search</button>
       <button onClick={() => postNewIssues()}>Post</button>
-      <AlyssaModal postNewIssues={postNewIssues}/>
       <IssuesTable />
     </div>
   );
