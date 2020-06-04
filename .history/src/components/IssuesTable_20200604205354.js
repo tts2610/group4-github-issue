@@ -1,9 +1,21 @@
 import React, { Component } from "react";
 import { Table, Container, Row, Col } from "react-bootstrap";
+import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+const fetchURL = "https://github.com/tts2610/group4-github-issue/issues";
+
 export default class IssuesTable extends Component {
-  componentDidMount() {}
+  componentDidMount() {
+    this.fetchIssues();
+  }
+
+  fetchIssues() {
+    axios.get(fetchURL).then((res) => {
+      const issues = res.data;
+      console.log(issues);
+    });
+  }
   render() {
     return (
       <div className="issue-table">
@@ -18,7 +30,7 @@ export default class IssuesTable extends Component {
               </div> */}
               <Row>
                 <Col sm={6}>
-                  <i className="fal fa-exclamation-circle mr-5"></i>
+                  <i className="fal fa-exclamation-circle mr-3"></i>
                   <span>502 Open</span>
                   <span className="text-muted ml-4">8,716 Closed</span>
                 </Col>

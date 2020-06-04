@@ -37,25 +37,7 @@
     }
 }
 
-@media screen and (max-width: 500px) {
-    .issue-table {
-        transform: scale(0.5);
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .issue-table {
-        transform: scale(0.4);
-    }
-}
-
 @media screen and (max-width: 800px) {
-    .issue-table {
-        transform: scale(0.8);
-    }
-}
-
-@media screen and (max-width: 700px) {
     .issue-table {
         transform: scale(0.8);
     }

@@ -17,12 +17,13 @@ export default class IssuesTable extends Component {
                 <span className="text-muted">8,716 Closed</span>
               </div> */}
               <Row>
-                <Col sm={6}>
-                  <i className="fal fa-exclamation-circle mr-5"></i>
-                  <span>502 Open</span>
-                  <span className="text-muted ml-4">8,716 Closed</span>
+                <Col sm={3}>
+                  <span>
+                    <i className="fal fa-exclamation-circle mr-2"></i>502 Open
+                  </span>
+                  <span className="ml-3 text-muted">8,716 Closed</span>
                 </Col>
-                <Col sm={6}>
+                <Col sm={9}>
                   <div className="filter text-muted">
                     <span className="">Author</span>
                     <span className="">Label</span>

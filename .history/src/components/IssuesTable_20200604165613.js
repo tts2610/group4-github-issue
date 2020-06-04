@@ -18,8 +18,9 @@ export default class IssuesTable extends Component {
               </div> */}
               <Row>
                 <Col sm={6}>
-                  <i className="fal fa-exclamation-circle mr-5"></i>
-                  <span>502 Open</span>
+                  <span>
+                    <i className="fal fa-exclamation-circle"></i>502 Open
+                  </span>
                   <span className="text-muted ml-4">8,716 Closed</span>
                 </Col>
                 <Col sm={6}>
