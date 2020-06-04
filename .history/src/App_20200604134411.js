@@ -8,7 +8,7 @@ export default class App extends Component {
     axios
       .get("https://api.github.com/repos/facebook/react/issues")
       .then(function (response) {
-        console.log(response.data);
+        console.log(response);
       })
       .catch(function (error) {
         console.log(error);

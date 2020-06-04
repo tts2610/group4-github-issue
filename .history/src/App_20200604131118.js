@@ -1,22 +1,9 @@
 import React, { Component } from "react";
+import logo from "./logo.svg";
 import "./App.css";
-const clientId = process.env.REACT_APP_CLIENT_ID;
-const axios = require("axios");
+const clientId = process.env.CLIENT_ID;
 
 export default class App extends Component {
-  componentDidMount() {
-    axios
-      .get("https://api.github.com/repos/facebook/react/issues")
-      .then(function (response) {
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-      .finally(function () {
-        // always executed
-      });
-  }
   constructor(props) {
     super(props);
     const existingToken = sessionStorage.getItem("token");

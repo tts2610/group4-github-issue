@@ -6,9 +6,13 @@ const axios = require("axios");
 export default class App extends Component {
   componentDidMount() {
     axios
-      .get("https://api.github.com/repos/facebook/react/issues")
+      .get("/user", {
+        params: {
+          ID: 12345,
+        },
+      })
       .then(function (response) {
-        console.log(response.data);
+        console.log(response);
       })
       .catch(function (error) {
         console.log(error);
