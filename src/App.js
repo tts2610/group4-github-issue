@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import AlyssaModal from "./components/AlyssaModal";
 import IssuesTable from "./components/IssuesTable";
-import NavigationBar from "./components/NavigationBar"
+import SmithNavigationBar from "./components/SmithNavigationBar"
+
 
 const clientId = process.env.REACT_APP_CLIENT_ID;
 const postURL = "https://github.com/tts2610/group4-github-issue/issues";
@@ -67,6 +69,7 @@ function App() {
       {console.log("What is token", token)}
       <button onClick={() => getIssues()}>Search</button>
       <button onClick={() => postNewIssues()}>Post</button>
+      <AlyssaModal postNewIssues={postNewIssues}/>
       <IssuesTable />
     </div>
   );
