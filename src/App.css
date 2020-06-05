@@ -1,12 +1,13 @@
 /* SMITH */
 #logo-img{
     border-radius: 100%;
-    background-color: transparent;
+    padding:2px;
+    background-color: white;
 }
 
 #logo-img:hover{
-    padding:2px;
-    background-color: white;
+    padding:0px;
+    background-color: transparent;
 }
 
 
