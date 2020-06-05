@@ -7,10 +7,11 @@ import Pagination from "react-js-pagination";
 
 export default function IssuesTable({ result, getIssues, url }) {
   const [activePage, setactivePage] = useState(0);
-  function handlePageChange(pageNumber) {
-    setactivePage(pageNumber);
-    console.log(pageNumber);
-    getIssues(url, "", pageNumber);
+  function handlePageChange() {
+    // console.log(`active page is ${pageNumber}`);
+    setactivePage((prev) => prev + 1);
+    console.log(activePage);
+    getIssues(url, activePage);
   }
   if (result != null)
     return (
@@ -41,19 +42,11 @@ export default function IssuesTable({ result, getIssues, url }) {
             })}
           </ul>
           <Pagination
-            className="pagination"
-            hideDisabled
-            prevPageText="Prev"
-            nextPageText="Next"
-            firstPageText="First"
-            lastPageText="Last"
             activePage={activePage}
             itemsCountPerPage={10}
             totalItemsCount={1000}
             pageRangeDisplayed={5}
-            onChange={handlePageChange.bind(this)}
-            itemClass="page-item"
-            linkClass="page-link"
+            onChange={handlePageChange}
           />
         </Container>
       </div>

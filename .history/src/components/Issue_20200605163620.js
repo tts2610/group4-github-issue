@@ -77,7 +77,6 @@ export default function Issue({ issue }) {
                     style={popOverStyling}
                   >
                     <span className="issueTitle">
-                      {/* DUY RESEARCH */}
                       <Link to="/issueDetail">{issue.title}</Link>
                     </span>
                   </PopoverStickOnHover>

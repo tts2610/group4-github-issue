@@ -77,8 +77,20 @@ export default function Issue({ issue }) {
                     style={popOverStyling}
                   >
                     <span className="issueTitle">
-                      {/* DUY RESEARCH */}
-                      <Link to="/issueDetail">{issue.title}</Link>
+                      <Router>
+                        <Link to="/issueDetail">{issue.title}</Link>
+                        <Switch>
+                          <Route
+                            exact
+                            path="/issueDetail"
+                            render={() => (
+                              <div>
+                                <em>List of items</em>
+                              </div>
+                            )}
+                          ></Route>
+                        </Switch>
+                      </Router>
                     </span>
                   </PopoverStickOnHover>
                   <span>

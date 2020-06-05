@@ -8,16 +8,21 @@ import Home from "./Home";
 export default function App() {
   return (
     <div>
-      <Router>
-        <Switch>
-          <Route path="/issueDetail">
-            <IssueDetail />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </Router>
+      <Switch>
+        <Route path="/">
+          <Home />
+        </Route>
+        <Route path="/issueDetail">
+          <IssueDetail />
+        </Route>
+      </Switch>
     </div>
   );
 }
+
+ReactDOM.render(
+  <Router>
+    <App />
+  </Router>,
+  document.getElementById("root")
+);

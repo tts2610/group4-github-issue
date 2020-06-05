@@ -9,7 +9,7 @@ export default function IssuesTable({ result, getIssues, url }) {
   const [activePage, setactivePage] = useState(0);
   function handlePageChange(pageNumber) {
     setactivePage(pageNumber);
-    console.log(pageNumber);
+    // console.log(pageNumber);
     getIssues(url, "", pageNumber);
   }
   if (result != null)

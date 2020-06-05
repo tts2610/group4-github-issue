@@ -9,7 +9,7 @@ export default function IssuesTable({ result, getIssues, url }) {
   const [activePage, setactivePage] = useState(0);
   function handlePageChange(pageNumber) {
     setactivePage(pageNumber);
-    console.log(pageNumber);
+    // console.log(pageNumber);
     getIssues(url, "", pageNumber);
   }
   if (result != null)
@@ -52,8 +52,6 @@ export default function IssuesTable({ result, getIssues, url }) {
             totalItemsCount={1000}
             pageRangeDisplayed={5}
             onChange={handlePageChange.bind(this)}
-            itemClass="page-item"
-            linkClass="page-link"
           />
         </Container>
       </div>

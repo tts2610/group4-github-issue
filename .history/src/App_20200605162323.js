@@ -5,19 +5,26 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import IssueDetail from "./IssueDetail";
 import Home from "./Home";
 
-export default function App() {
+function App() {
   return (
     <div>
       <Router>
         <Switch>
-          <Route path="/issueDetail">
-            <IssueDetail />
-          </Route>
           <Route path="/">
             <Home />
           </Route>
+          <Route path="/issueDetail">
+            <IssueDetail />
+          </Route>
         </Switch>
-      </Router>
+      <Router/>
     </div>
   );
 }
+
+ReactDOM.render(
+
+    <App />
+  </Router>,
+  document.getElementById("root")
+);

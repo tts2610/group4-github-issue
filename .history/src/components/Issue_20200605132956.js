@@ -2,9 +2,7 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 import Moment from "react-moment";
 import PopoverStickOnHover from "./PopoverStickOnHover";
-import { Link, NavLink } from "react-router-dom";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import IssueDetail from "../IssueDetail";
+import { Link } from "react-router-dom";
 
 const popOverStyling = {
   paddingLeft: "10px",
@@ -24,15 +22,17 @@ export default function Issue({ issue }) {
           </div>
           <div>
             <div>
-              {" "}
-              <span className="overlay-title">
-                {issue.title.includes("_")
-                  ? issue.title.replace(/_/g, function (match) {
-                      t++;
-                      return t === 4 ? "-" : match;
-                    })
-                  : issue.title}
-              </span>{" "}
+              <Link to="/issueDetail">
+                {" "}
+                <span className="overlay-title">
+                  {issue.title.includes("_")
+                    ? issue.title.replace(/_/g, function (match) {
+                        t++;
+                        return t === 4 ? "-" : match;
+                      })
+                    : issue.title}
+                </span>{" "}
+              </Link>
               <span className="overlay-number">#{issue.number}</span>
             </div>
             <div className="overlay-body mb-3">{issue.body}</div>
@@ -76,10 +76,7 @@ export default function Issue({ issue }) {
                     delay={200}
                     style={popOverStyling}
                   >
-                    <span className="issueTitle">
-                      {/* DUY RESEARCH */}
-                      <Link to="/issueDetail">{issue.title}</Link>
-                    </span>
+                    <span className="issueTitle">{issue.title}</span>
                   </PopoverStickOnHover>
                   <span>
                     {issue.labels.map((x, index) => (

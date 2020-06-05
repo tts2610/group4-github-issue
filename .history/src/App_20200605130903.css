@@ -171,37 +171,5 @@
     text-decoration: none;
 }
 
-.pagination {
-    display: flex;
-    justify-content: center;
-    margin: 10px;
-}
-
-.pagination ul {
-    display: inline-block;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-.pagination li {
-    display: inline-block;
-    margin-right: 15px;
-}
-
-.pagination li a {
-    outline: 0;
-    background-color: transparent;
-    color: black;
-}
-
-.pagination .active {
-    width: 30px;
-    height: 38px;
-    border-radius: 50%;
-    display: flex;
-    background-color: black;
-    z-index: 0;
-}
-
 
 /* END-SEAN */

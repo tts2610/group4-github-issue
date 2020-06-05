@@ -10,11 +10,11 @@ export default function App() {
     <div>
       <Router>
         <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
           <Route path="/issueDetail">
             <IssueDetail />
-          </Route>
-          <Route path="/">
-            <Home />
           </Route>
         </Switch>
       </Router>

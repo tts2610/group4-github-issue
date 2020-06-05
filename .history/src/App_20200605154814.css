@@ -191,14 +191,16 @@
 .pagination li a {
     outline: 0;
     background-color: transparent;
-    color: black;
+    color: white;
 }
 
 .pagination .active {
     width: 30px;
-    height: 38px;
+    height: 30px;
     border-radius: 50%;
     display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: black;
     z-index: 0;
 }
