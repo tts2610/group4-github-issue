@@ -13,7 +13,7 @@ export default function App() {
           <Route path="/">
             <Home />
           </Route>
-          <Route exact path="/issueDetail">
+          <Route path="/issueDetail">
             <IssueDetail />
           </Route>
         </Switch>

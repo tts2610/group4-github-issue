@@ -69,17 +69,26 @@ export default function Issue({ issue }) {
             <span>
               <div>
                 <h6 className="my-0">
-                  <PopoverStickOnHover
+                  {/* <PopoverStickOnHover
                     component={popover}
                     placement="top"
                     onMouseEnter={() => {}}
                     delay={200}
                     style={popOverStyling}
-                  >
-                    <span className="issueTitle">
+                  > */}
+                  <span className="issueTitle">
+                    {/* <Link to="/issueDetail">{issue.title}</Link> */}
+                    {/* {issue.title} */}
+                    <Router>
                       <Link to="/issueDetail">{issue.title}</Link>
-                    </span>
-                  </PopoverStickOnHover>
+                      <Switch>
+                        <Route exact path="/issueDetail">
+                          {/* <IssueDetail /> */}
+                        </Route>
+                      </Switch>
+                    </Router>
+                  </span>
+                  {/* </PopoverStickOnHover> */}
                   <span>
                     {issue.labels.map((x, index) => (
                       <a

@@ -11,9 +11,9 @@ export default function App() {
       <Router>
         <Switch>
           <Route path="/">
-            <Home />
+            <IssueDetail />
           </Route>
-          <Route exact path="/issueDetail">
+          <Route path="/issueDetail">
             <IssueDetail />
           </Route>
         </Switch>

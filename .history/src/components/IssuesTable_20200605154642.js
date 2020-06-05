@@ -41,19 +41,11 @@ export default function IssuesTable({ result, getIssues, url }) {
             })}
           </ul>
           <Pagination
-            className="pagination"
-            hideDisabled
-            prevPageText="Prev"
-            nextPageText="Next"
-            firstPageText="First"
-            lastPageText="Last"
             activePage={activePage}
             itemsCountPerPage={10}
             totalItemsCount={1000}
             pageRangeDisplayed={5}
             onChange={handlePageChange.bind(this)}
-            itemClass="page-item"
-            linkClass="page-link"
           />
         </Container>
       </div>

@@ -1,16 +1,14 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import Issue from "./Issue";
 import Pagination from "react-js-pagination";
 
-export default function IssuesTable({ result, getIssues, url }) {
-  const [activePage, setactivePage] = useState(0);
-  function handlePageChange(pageNumber) {
-    setactivePage(pageNumber);
-    // console.log(pageNumber);
-    getIssues(url, "", pageNumber);
+export default function IssuesTable({ result }) {
+  handlePageChange(pageNumber) {
+    console.log(`active page is ${pageNumber}`);
+    this.setState({activePage: pageNumber});
   }
   if (result != null)
     return (
@@ -41,20 +39,12 @@ export default function IssuesTable({ result, getIssues, url }) {
             })}
           </ul>
           <Pagination
-            className="pagination"
-            hideDisabled
-            prevPageText="Prev"
-            nextPageText="Next"
-            firstPageText="First"
-            lastPageText="Last"
-            activePage={activePage}
-            itemsCountPerPage={10}
-            totalItemsCount={1000}
-            pageRangeDisplayed={5}
-            onChange={handlePageChange.bind(this)}
-            itemClass="page-item"
-            linkClass="page-link"
-          />
+          activePage={this.state.activePage}
+          itemsCountPerPage={10}
+          totalItemsCount={450}
+          pageRangeDisplayed={5}
+          onChange={this.handlePageChange.bind(this)}
+        />
         </Container>
       </div>
     );

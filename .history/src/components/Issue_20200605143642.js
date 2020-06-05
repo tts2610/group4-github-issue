@@ -2,9 +2,9 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 import Moment from "react-moment";
 import PopoverStickOnHover from "./PopoverStickOnHover";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import IssueDetail from "../IssueDetail";
+import IssueDetail from "./IssueDetail";
 
 const popOverStyling = {
   paddingLeft: "10px",
@@ -77,7 +77,22 @@ export default function Issue({ issue }) {
                     style={popOverStyling}
                   >
                     <span className="issueTitle">
-                      <Link to="/issueDetail">{issue.title}</Link>
+                      <Router>
+                        <Link to="/"></Link>
+                        <Link to="/issueDetail">{issue.title}</Link>
+                        <Switch>
+                          <Route
+                            exact
+                            path="/issueDetail"
+                            render={() => (
+                              <div>
+                                <em>List of items</em>
+                              </div>
+                            )}
+                          ></Route>
+                          <Route exact path="/"></Route>
+                        </Switch>
+                      </Router>
                     </span>
                   </PopoverStickOnHover>
                   <span>

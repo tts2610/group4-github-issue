@@ -190,8 +190,8 @@
 
 .pagination li a {
     outline: 0;
-    background-color: blue;
-    color: red;
+    background-color: transparent;
+    color: white;
 }
 
 .pagination .active {

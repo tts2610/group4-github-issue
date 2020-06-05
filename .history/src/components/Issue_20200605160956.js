@@ -78,6 +78,13 @@ export default function Issue({ issue }) {
                   >
                     <span className="issueTitle">
                       <Link to="/issueDetail">{issue.title}</Link>
+                      {/* {issue.title} */}
+                      {/* <Router>
+                        <Link to="/issueDetail">{issue.title}</Link>
+                        <Switch>
+                          <Route exact path="/issueDetail"></Route>
+                        </Switch>
+                      </Router> */}
                     </span>
                   </PopoverStickOnHover>
                   <span>

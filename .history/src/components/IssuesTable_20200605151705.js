@@ -1,17 +1,10 @@
-import React, { Component, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { Component } from "react";
+import { Container, Row, Col, NavDropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import Issue from "./Issue";
-import Pagination from "react-js-pagination";
 
-export default function IssuesTable({ result, getIssues, url }) {
-  const [activePage, setactivePage] = useState(0);
-  function handlePageChange(pageNumber) {
-    setactivePage(pageNumber);
-    // console.log(pageNumber);
-    getIssues(url, "", pageNumber);
-  }
+export default function IssuesTable({ result }) {
   if (result != null)
     return (
       <div className="issue-table">
@@ -31,7 +24,21 @@ export default function IssuesTable({ result, getIssues, url }) {
                     <span className="">Projects</span>
                     <span className="">Milestones</span>
                     <span className="">Assignee</span>
-                    <span>Sort</span>
+                    <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                      <NavDropdown.Item href="#action/3.1">
+                        Action
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#action/3.2">
+                        Another action
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#action/3.3">
+                        Something
+                      </NavDropdown.Item>
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item href="#action/3.4">
+                        Separated link
+                      </NavDropdown.Item>
+                    </NavDropdown>
                   </div>
                 </Col>
               </Row>
@@ -40,21 +47,6 @@ export default function IssuesTable({ result, getIssues, url }) {
               return <Issue key={index} issue={issue} />;
             })}
           </ul>
-          <Pagination
-            className="pagination"
-            hideDisabled
-            prevPageText="Prev"
-            nextPageText="Next"
-            firstPageText="First"
-            lastPageText="Last"
-            activePage={activePage}
-            itemsCountPerPage={10}
-            totalItemsCount={1000}
-            pageRangeDisplayed={5}
-            onChange={handlePageChange.bind(this)}
-            itemClass="page-item"
-            linkClass="page-link"
-          />
         </Container>
       </div>
     );

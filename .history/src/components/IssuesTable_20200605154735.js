@@ -52,8 +52,6 @@ export default function IssuesTable({ result, getIssues, url }) {
             totalItemsCount={1000}
             pageRangeDisplayed={5}
             onChange={handlePageChange.bind(this)}
-            itemClass="page-item"
-            linkClass="page-link"
           />
         </Container>
       </div>
