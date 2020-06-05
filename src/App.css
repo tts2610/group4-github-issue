@@ -1,6 +1,14 @@
 /* SMITH */
+#logo-img{
+    border-radius: 100%;
+    padding:2px;
+    background-color: white;
+}
 
-
+#search-bar{
+    min-width: 250px;
+    font-size: small;
+}
 /* END-SMITH */
 
 

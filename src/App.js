@@ -11,6 +11,7 @@ const postURL = "https://github.com/tts2610/group4-github-issue/issues";
 function App() {
   const [token, setToken] = useState(null);
 
+
   const getToken = () => {
     const existingToken = localStorage.getItem("token"); //if we already have token from localStorage just get that
     const accessToken =
@@ -38,12 +39,14 @@ function App() {
     }
   };
 
-  let getIssues = async () => {
-    console.log("aas");
-    let url = `https://api.github.com/repos/facebook/react/issues`;
+  const getIssues = async (issues, event) => {
+    let url = `https://api.github.com/repos/${issues}/issues`;
     let data = await fetch(url);
     let result = await data.json();
     console.log("what is result", result);
+    if(result.message==="Not Found"){
+      alert("Search not found, please input a valid owner/repos.")
+    }
   };
 
   const postNewIssues = async () => {
@@ -67,8 +70,7 @@ function App() {
   return (
     <div>
       {console.log("What is token", token)}
-      <button onClick={() => getIssues()}>Search</button>
-      <button onClick={() => postNewIssues()}>Post</button>
+      <SmithNavigationBar getIssues={getIssues} input />
       <AlyssaModal postNewIssues={postNewIssues}/>
       <IssuesTable />
     </div>
