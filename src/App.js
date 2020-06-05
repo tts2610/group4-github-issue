@@ -99,7 +99,7 @@ function App() {
         keyboard={false}
         onHide={handleClose}
       />
-      <AlyssaModal postNewIssues={postNewIssues} />
+      <AlyssaModal handleShow={handleShow} postNewIssues={postNewIssues} />
       <IssuesTable result={result} />
     </div>
   );
