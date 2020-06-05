@@ -5,25 +5,25 @@ import axios from "axios";
 import Issue from "./Issue";
 
 export default class IssuesTable extends Component {
-  // state = {
-  //   issueList: [],
-  // };
+  state = {
+    issueList: [],
+  };
   componentDidMount() {
-    // this.fetchIssues();
-    this.setState(this.props);
+    this.fetchIssues();
+    this.state = this.props;
   }
 
-  // fetchIssues() {
-  //   axios
-  //     .get(`https://api.github.com/repos/facebook/react/issues?per_page=50`)
-  //     .then((res) => {
-  //       const issues = res.data;
-  //       console.log(issues);
-  //       this.setState({
-  //         issueList: issues,
-  //       });
-  //     });
-  // }
+  fetchIssues() {
+    axios
+      .get(`https://api.github.com/repos/facebook/react/issues?per_page=50`)
+      .then((res) => {
+        const issues = res.data;
+        console.log(issues);
+        this.setState({
+          issueList: issues,
+        });
+      });
+  }
   render() {
     return (
       <div className="issue-table">
@@ -48,7 +48,7 @@ export default class IssuesTable extends Component {
                 </Col>
               </Row>
             </li>
-            {this.state.result.map(function (issue, index) {
+            {this.state.issueList.map(function (issue, index) {
               return <Issue key={index} issue={issue} />;
             })}
           </ul>

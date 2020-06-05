@@ -65,7 +65,6 @@ function App() {
       handleShow();
       return;
     }
-    setResult(result);
   };
 
   const postNewIssues = async (title, body) => {
@@ -99,7 +98,7 @@ function App() {
         onHide={handleClose}
       />
       <AlyssaModal postNewIssues={postNewIssues} />
-      <IssuesTable result={result} />
+      <IssuesTable />
     </div>
   );
 }

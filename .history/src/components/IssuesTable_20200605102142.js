@@ -5,11 +5,11 @@ import axios from "axios";
 import Issue from "./Issue";
 
 export default class IssuesTable extends Component {
-  // state = {
-  //   issueList: [],
-  // };
+  state = {
+    issueList: [],
+  };
   componentDidMount() {
-    // this.fetchIssues();
+    this.fetchIssues();
     this.setState(this.props);
   }
 
