@@ -61,9 +61,9 @@ function Home() {
     if (issues.includes("https://github.com/")) {
       issues = issues.slice(19);
       console.log(issues);
-      link = `https://api.github.com/repos/${issues}/issues?page=${page}`;
+      link = `https://api.github.com/repos/${issues}/issues`;
     } else {
-      link = `https://api.github.com/repos/${issues}/issues?page=${page}`;
+      link = `https://api.github.com/repos/${issues}/issues`;
     }
     let data = await fetch(link);
     let result = await data.json();
