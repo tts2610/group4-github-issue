@@ -1,0 +1,31 @@
+/* SMITH */
+
+
+/* END-SMITH */
+
+
+/* ALYSSA */
+
+
+/* END-ALYSSA */
+
+
+/* DUY */
+
+
+/* END-DUY */
+
+
+/* SEAN */
+
+.issue-table li.issue:hover {
+    filter: brightness(97%);
+}
+
+.filter {
+    display: flex;
+    justify-content: end;
+}
+
+
+/* END-SEAN */

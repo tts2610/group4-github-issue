@@ -2,21 +2,32 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import AlyssaModal from "./components/AlyssaModal";
 import IssuesTable from "./components/IssuesTable";
+<<<<<<< HEAD
 import SmithNavigationBar from "./components/SmithNavigationBar"
 import SmithWarningModal from "./components/SmithWarningModal";
 
+=======
+>>>>>>> ede48f37ff806ff11d35570c8eb320791394257e
 
 const clientId = process.env.REACT_APP_CLIENT_ID;
-const postURL = "https://github.com/tts2610/group4-github-issue/issues";
+
+
+// const postURL = "https://github.com/tts2610/group4-github-issue/issues";
+const postURL = "https://api.github.com/repos/tts2610/group4-github-issue/issues"
 
 function App() {
   const [token, setToken] = useState(null);
   const [show, setShow] = useState(false);
+<<<<<<< HEAD
   const [warningMessage, setWarningMessage]  = useState("")
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+=======
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+>>>>>>> ede48f37ff806ff11d35570c8eb320791394257e
 
   const getToken = () => {
     const existingToken = localStorage.getItem("token"); //if we already have token from localStorage just get that
@@ -62,8 +73,8 @@ function App() {
     }
   };
 
-  const postNewIssues = async () => {
-    const issue = { title: "here is the issue", body: "help me fix this" };
+  const postNewIssues = async (title, body) => {
+    const issue = { title: title, body: body};
     const url = postURL;
     const response = await fetch(url, {
       method: "POST",
@@ -74,6 +85,7 @@ function App() {
       body: JSON.stringify(issue),
     });
     console.log("what is response", response);
+    handleClose()
   };
 
   useEffect(() => {

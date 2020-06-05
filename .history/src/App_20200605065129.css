@@ -1,0 +1,138 @@
+/* SMITH */
+
+
+/* END-SMITH */
+
+
+/* ALYSSA */
+
+.alySpacing {
+    margin-bottom: 20px;
+}
+
+
+/* END-ALYSSA */
+
+
+/* DUY */
+
+
+/* END-DUY */
+
+
+/* SEAN */
+
+.issue-table li.issue:hover {
+    filter: brightness(97%);
+}
+
+.issue-table .filter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.issue-table li.issue i.fa-exclamation-circle {
+    color: green;
+}
+
+@media screen and (max-width: 600px) {
+    .issue-table {
+        transform: scale(0.6);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .issue-table {
+        transform: scale(0.5);
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .issue-table {
+        transform: scale(0.4);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .issue-table {
+        transform: scale(0.8);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .issue-table {
+        transform: scale(0.8);
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .issue-table {
+        transform: scale(1);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .issue-table {
+        transform: scale(0.9);
+    }
+}
+
+.issueCommentNumber {
+    font-size: 13px;
+    font-weight: bolder;
+}
+
+.issueCommentIcon {
+    font-weight: 500 !important;
+}
+
+.commentIssue {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: 500;
+}
+
+.issue-table li.issue .issueLabel {
+    text-decoration: none;
+    padding: 5px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.issue-table li.issue .issueTitle:hover {
+    cursor: pointer;
+    color: blue;
+}
+
+#popover-basic .overlay-body {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
+#popover-basic {
+    width: 200px;
+    padding: 0px 15px 0px 15px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+#popover-basic .fa-exclamation-circle {
+    color: green;
+}
+
+#popover-basic .overlay-header {
+    font-size: 12px;
+    color: grey;
+}
+
+#popover-basic .overlay-title {
+    color: red;
+}
+
+
+/* END-SEAN */
