@@ -7,40 +7,27 @@ const popOverStyling = {
   paddingLeft: "10px",
 };
 export default function Issue({ issue }) {
-  let t = 0;
   const popover = (
-    <div>
-      <div className="overlay-header">
-        {/repos\/(.*)/g.exec(issue.repository_url)[1]} on{" "}
-        <Moment format="MMM D">{issue.created_at}</Moment>
-      </div>
-      <div>
+    <div id="popover-basic">
+      <Row className="overlay-header">facebook/react on June 4</Row>
+      <Row>
         <div style={{ display: "flex" }}>
-          <div>
-            <i className="fal fa-exclamation-circle mr-2"></i>
-          </div>
-          <div>
-            <div>
-              <span className="overlay-title">
-                {issue.title.includes("_")
-                  ? issue.title.replace(/_/g, function (match) {
-                      t++;
-                      return t === 4 ? "-" : match;
-                    })
-                  : issue.title}
-              </span>
-              <span className="overlay-number">#{issue.number}</span>
-            </div>
-            <div className="overlay-body mb-3">{issue.body}</div>
-            <div>
+          <Col sm={1}>
+            <i className="fal fa-exclamation-circle"></i>
+          </Col>
+          <Col sm={8}>
+            <Row className="overlay-title">
+              {issue.title}#{issue.number}
+            </Row>
+            <Row className="overlay-body">{issue.body}</Row>
+            <Row>
               {issue.labels.map((x, index) => (
                 <a
                   key={index}
-                  className="d-inline-block issueLabel"
+                  className="d-inline-block issueLabel ml-2"
                   style={{
                     backgroundColor: `#${x.color}`,
                     color: "#000000",
-                    textDecoration: "none",
                   }}
                   title={x.description}
                   href="/"
@@ -48,10 +35,10 @@ export default function Issue({ issue }) {
                   {x.name}
                 </a>
               ))}
-            </div>
-          </div>
+            </Row>
+          </Col>
         </div>
-      </div>
+      </Row>
     </div>
   );
   return (
@@ -72,7 +59,7 @@ export default function Issue({ issue }) {
                     delay={200}
                     style={popOverStyling}
                   >
-                    <span className="issueTitle">{issue.title}</span>
+                    <span>{issue.title}</span>
                   </PopoverStickOnHover>
                   <span>
                     {issue.labels.map((x, index) => (

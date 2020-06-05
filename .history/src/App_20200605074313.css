@@ -129,8 +129,9 @@
 }
 
 #popover-basic .overlay-title {
-    width: 100px;
+    width: 50px;
     font-weight: bolder;
+    margin-right: 25px;
     overflow-wrap: break-word;
     word-wrap: break-word;
 }

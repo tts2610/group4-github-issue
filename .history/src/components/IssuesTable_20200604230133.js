@@ -17,6 +17,7 @@ export default class IssuesTable extends Component {
       .get(`https://api.github.com/repos/facebook/react/issues`)
       .then((res) => {
         const issues = res.data;
+        console.log(issues);
         this.setState({
           issueList: issues,
         });

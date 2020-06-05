@@ -106,16 +106,19 @@
 }
 
 #popover-basic .overlay-body {
-    width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
+    /* number of lines to show */
     -webkit-box-orient: vertical;
 }
 
 #popover-basic {
-    padding: 5px 10px 20px 20px;
+    padding: 20px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    height: 200px;
 }
 
 #popover-basic .fa-exclamation-circle {
@@ -123,21 +126,13 @@
 }
 
 #popover-basic .overlay-header {
-    /* margin-right: 20px; */
     font-size: 12px;
     color: grey;
 }
 
 #popover-basic .overlay-title {
-    width: 100px;
-    font-weight: bolder;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-}
-
-#popover-basic .overlay-title:hover {
-    cursor: pointer;
-    color: blue;
+    /* word-wrap: normal; */
+    color: red;
 }
 
 

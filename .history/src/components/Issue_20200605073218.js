@@ -7,28 +7,17 @@ const popOverStyling = {
   paddingLeft: "10px",
 };
 export default function Issue({ issue }) {
-  let t = 0;
   const popover = (
     <div>
-      <div className="overlay-header">
-        {/repos\/(.*)/g.exec(issue.repository_url)[1]} on{" "}
-        <Moment format="MMM D">{issue.created_at}</Moment>
-      </div>
+      <div className="overlay-header">facebook/react on June 4</div>
       <div>
         <div style={{ display: "flex" }}>
           <div>
             <i className="fal fa-exclamation-circle mr-2"></i>
           </div>
           <div>
-            <div>
-              <span className="overlay-title">
-                {issue.title.includes("_")
-                  ? issue.title.replace(/_/g, function (match) {
-                      t++;
-                      return t === 4 ? "-" : match;
-                    })
-                  : issue.title}
-              </span>
+            <div className="overlay-title">
+              {issue.title}
               <span className="overlay-number">#{issue.number}</span>
             </div>
             <div className="overlay-body mb-3">{issue.body}</div>
@@ -40,7 +29,6 @@ export default function Issue({ issue }) {
                   style={{
                     backgroundColor: `#${x.color}`,
                     color: "#000000",
-                    textDecoration: "none",
                   }}
                   title={x.description}
                   href="/"

@@ -106,16 +106,17 @@
 }
 
 #popover-basic .overlay-body {
-    width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
 }
 
 #popover-basic {
-    padding: 5px 10px 20px 20px;
+    padding: 5px 20px 20px 20px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 #popover-basic .fa-exclamation-circle {
@@ -129,15 +130,8 @@
 }
 
 #popover-basic .overlay-title {
-    width: 100px;
-    font-weight: bolder;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-}
-
-#popover-basic .overlay-title:hover {
-    cursor: pointer;
-    color: blue;
+    color: red;
+    margin-right: 25px;
 }
 
 

@@ -11,8 +11,7 @@ export default function Issue({ issue }) {
   const popover = (
     <div>
       <div className="overlay-header">
-        {/repos\/(.*)/g.exec(issue.repository_url)[1]} on{" "}
-        <Moment format="MMM D">{issue.created_at}</Moment>
+        {/repos\/(.*)/g.exec(issue.repository_url[1])} on June 4
       </div>
       <div>
         <div style={{ display: "flex" }}>

@@ -12,7 +12,7 @@ export default function Issue({ issue }) {
     <div>
       <div className="overlay-header">
         {/repos\/(.*)/g.exec(issue.repository_url)[1]} on{" "}
-        <Moment format="MMM D">{issue.created_at}</Moment>
+        <Moment parse="MMM DD">{issue.created_at.format("MMM DD")}</Moment>
       </div>
       <div>
         <div style={{ display: "flex" }}>

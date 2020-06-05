@@ -115,7 +115,7 @@
 }
 
 #popover-basic {
-    padding: 5px 10px 20px 20px;
+    padding: 5px 0px 20px 20px;
 }
 
 #popover-basic .fa-exclamation-circle {
@@ -131,6 +131,7 @@
 #popover-basic .overlay-title {
     width: 100px;
     font-weight: bolder;
+    margin-right: 25px;
     overflow-wrap: break-word;
     word-wrap: break-word;
 }
