@@ -5,6 +5,27 @@ import axios from "axios";
 import Issue from "./Issue";
 
 export default function IssuesTable({ result }) {
+  state = {
+    issueList: [],
+  };
+  // componentDidMount() {
+
+  //   // this.fetchIssues();
+  //   this.setState({ issueList: this.props.result });
+  // }
+
+  // fetchIssues() {
+  //   axios
+  //     .get(`https://api.github.com/repos/facebook/react/issues?per_page=50`)
+  //     .then((res) => {
+  //       const issues = res.data;
+  //       console.log(issues);
+  //       this.setState({
+  //         issueList: issues,
+  //       });
+  //     });
+  // }
+
   if (result != null)
     return (
       <div className="issue-table">

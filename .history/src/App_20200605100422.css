@@ -1,25 +1,5 @@
 /* SMITH */
-#logo-img{
-    border-radius: 100%;
-    padding:2px;
-    background-color: white;
-}
 
-#logo-img:hover{
-    padding:0px;
-    background-color: transparent;
-}
-
-
-#search-bar{
-    min-width: 250px;
-    font-size: small;
-    transition: transform .2s; 
-}
-
-#search-bar:hover{
-    transform: width(1.5);
-}
 
 /* END-SMITH */
 
@@ -104,6 +84,7 @@
 
 .issueCommentIcon {
     font-weight: 500 !important;
+    color: blue;
 }
 
 .commentIssue {
@@ -114,7 +95,7 @@
 }
 
 .commentIssue:hover {
-    color: blue !important;
+    color: blue;
     cursor: pointer;
 }
 

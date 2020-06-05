@@ -4,8 +4,27 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import Issue from "./Issue";
 
-export default function IssuesTable({ result }) {
-  if (result != null)
+export default class IssuesTable extends Component {
+  state = {
+    issueList: [],
+  };
+  componentDidMount() {
+    this.fetchIssues();
+    this.setState(this.props);
+  }
+
+  // fetchIssues() {
+  //   axios
+  //     .get(`https://api.github.com/repos/facebook/react/issues?per_page=50`)
+  //     .then((res) => {
+  //       const issues = res.data;
+  //       console.log(issues);
+  //       this.setState({
+  //         issueList: issues,
+  //       });
+  //     });
+  // }
+  render() {
     return (
       <div className="issue-table">
         <Container>
@@ -29,14 +48,12 @@ export default function IssuesTable({ result }) {
                 </Col>
               </Row>
             </li>
-            {result.map(function (issue, index) {
+            {this.state.result.map(function (issue, index) {
               return <Issue key={index} issue={issue} />;
             })}
           </ul>
         </Container>
       </div>
     );
-  else {
-    return <div></div>;
   }
 }
