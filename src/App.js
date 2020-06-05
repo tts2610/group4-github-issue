@@ -3,6 +3,7 @@ import "./App.css";
 import AlyssaModal from "./components/AlyssaModal";
 import IssuesTable from "./components/IssuesTable";
 import SmithNavigationBar from "./components/SmithNavigationBar"
+import SmithWarningModal from "./components/SmithWarningModal";
 
 
 const clientId = process.env.REACT_APP_CLIENT_ID;
@@ -10,6 +11,11 @@ const postURL = "https://github.com/tts2610/group4-github-issue/issues";
 
 function App() {
   const [token, setToken] = useState(null);
+  const [show, setShow] = useState(false);
+  const [warningMessage, setWarningMessage]  = useState("")
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
 
   const getToken = () => {
@@ -45,11 +51,13 @@ function App() {
     let result = await data.json();
     console.log("what is result", result);
     if(result.message==="Not Found"){
-      alert("Search not found, please input a valid owner/repos.")
+      setWarningMessage("Your search yields no result. Please enter a valid owner/repos")
+      handleShow()
       return
     }
     if (result.length===0){
-      alert("This repository reports no issues!")
+      setWarningMessage("This repository has no issues!")
+      handleShow()
       return
     }
   };
@@ -76,6 +84,7 @@ function App() {
     <div>
       {console.log("What is token", token)}
       <SmithNavigationBar getIssues={getIssues} input />
+      <SmithWarningModal  show={show} warningMessage={warningMessage} handleClose={handleClose} keyboard={false} onHide={handleClose}/>
       <AlyssaModal postNewIssues={postNewIssues}/>
       <IssuesTable />
     </div>
