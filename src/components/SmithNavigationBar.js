@@ -22,7 +22,7 @@ export default function SmithNavigationBar(props) {
         <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
             <Form inline onSubmit={event => {event.preventDefault(); props.getIssues(inputValue.toLowerCase(), event); setInputValue("")}}>
-            <FormControl type="text" id="search-bar" placeholder="owner/repos" className="mr-sm-2" value={inputValue} onChange={event => setInputValue(event.target.value)} />
+            <FormControl id="search-bar" type="text"  placeholder="owner/repos" className="mr-sm-2" value={inputValue} onChange={event => setInputValue(event.target.value)} />
             </Form>
             </Nav>
   </Navbar.Collapse>

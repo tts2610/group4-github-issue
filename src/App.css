@@ -14,12 +14,11 @@
 #search-bar{
     min-width: 250px;
     font-size: small;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
+    transition: transform .2s; 
 }
 
 #search-bar:hover{
-    width: 300px%;
+    transform: width(1.5);
 }
 
 /* END-SMITH */
