@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import AlyssaModal from "./components/AlyssaModal";
 import IssuesTable from "./components/IssuesTable";
+import SmithNavigationBar from "./components/SmithNavigationBar"
+import SmithWarningModal from "./components/SmithWarningModal";
+
 
 const clientId = process.env.REACT_APP_CLIENT_ID;
 
@@ -12,8 +15,11 @@ const postURL = "https://api.github.com/repos/tts2610/group4-github-issue/issues
 function App() {
   const [token, setToken] = useState(null);
   const [show, setShow] = useState(false);
+  const [warningMessage, setWarningMessage]  = useState("")
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
 
   const getToken = () => {
     const existingToken = localStorage.getItem("token"); //if we already have token from localStorage just get that
@@ -42,12 +48,21 @@ function App() {
     }
   };
 
-  let getIssues = async () => {
-    console.log("aas");
-    let url = `https://api.github.com/repos/facebook/react/issues`;
+  const getIssues = async (issues, event) => {
+    let url = `https://api.github.com/repos/${issues}/issues`;
     let data = await fetch(url);
     let result = await data.json();
     console.log("what is result", result);
+    if(result.message==="Not Found"){
+      setWarningMessage("Your search yields no result. Please enter a valid owner/repos")
+      handleShow()
+      return
+    }
+    if (result.length===0){
+      setWarningMessage("This repository has no issues!")
+      handleShow()
+      return
+    }
   };
 
   const postNewIssues = async (title, body) => {
@@ -72,9 +87,9 @@ function App() {
   return (
     <div>
       {console.log("What is token", token)}
-      <button onClick={() => getIssues()}>Search</button>
-      <button onClick={ postNewIssues}>Post</button>
-      <AlyssaModal postNewIssues={postNewIssues} handleClose={handleClose} handleShow={handleShow} show={show}/>
+      <SmithNavigationBar getIssues={getIssues} input />
+      <SmithWarningModal  show={show} warningMessage={warningMessage} handleClose={handleClose} keyboard={false} onHide={handleClose}/>
+      <AlyssaModal postNewIssues={postNewIssues}/>
       <IssuesTable />
     </div>
   );
