@@ -10,6 +10,7 @@ const clientId = process.env.REACT_APP_CLIENT_ID;
 // const postURL = "https://github.com/tts2610/group4-github-issue/issues";
 // const postURL =
 //   "https://api.github.com/repos/tts2610/group4-github-issue/issues";
+let link = ""
 
 function App() {
   const [token, setToken] = useState(null);
@@ -55,8 +56,13 @@ function App() {
   };
 
   const getIssues = async (issues, event) => {
-    let url = `https://api.github.com/repos/${issues}/issues`;
-    let data = await fetch(url);
+    if (issues.includes("https://github.com/")){
+    issues=issues.slice(19)
+    console.log(issues)
+    link = `https://api.github.com/repos/${issues}/issues`
+    }
+    else{link = `https://api.github.com/repos/${issues}/issues`}
+    let data = await fetch(link);
     let result = await data.json();
     // console.log("what is result", result);
     if (result.message === "Not Found") {
@@ -76,6 +82,13 @@ function App() {
   };
 
   const postNewIssues = async (title, body) => {
+    if(title==="" || body===""){
+      setWarningMessage(
+        "Your issue has no title."
+      );
+      handleShow();
+      return
+    }
     const issue = { title: title, body: body };
     const url = `https://api.github.com/repos/${postUrl}/issues`;
     const response = await fetch(url, {
