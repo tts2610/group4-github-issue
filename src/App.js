@@ -7,9 +7,7 @@ import SmithWarningModal from "./components/SmithWarningModal";
 
 const clientId = process.env.REACT_APP_CLIENT_ID;
 
-// const postURL = "https://github.com/tts2610/group4-github-issue/issues";
-// const postURL =
-//   "https://api.github.com/repos/tts2610/group4-github-issue/issues";
+
 let link = ""
 
 function App() {
@@ -64,7 +62,6 @@ function App() {
     else{link = `https://api.github.com/repos/${issues}/issues`}
     let data = await fetch(link);
     let result = await data.json();
-    // console.log("what is result", result);
     if (result.message === "Not Found") {
       setWarningMessage(
         "Your search yields no result. Please enter a valid owner/repos"
