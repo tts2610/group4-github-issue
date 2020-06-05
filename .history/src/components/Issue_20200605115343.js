@@ -3,7 +3,6 @@ import { Row, Col } from "react-bootstrap";
 import Moment from "react-moment";
 import PopoverStickOnHover from "./PopoverStickOnHover";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import IssueDetail from "./IssueDetail";
 
 const popOverStyling = {
   paddingLeft: "10px",
