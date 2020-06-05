@@ -94,8 +94,7 @@
 }
 
 .commentIssue:hover {
-    color: blue !important;
-    cursor: pointer;
+    color: blue;
 }
 
 .issue-table li.issue .issueLabel {

@@ -84,6 +84,7 @@
 
 .issueCommentIcon {
     font-weight: 500 !important;
+    color: blue;
 }
 
 .commentIssue {
@@ -94,7 +95,7 @@
 }
 
 .commentIssue:hover {
-    color: blue !important;
+    color: blue;
     cursor: pointer;
 }
 

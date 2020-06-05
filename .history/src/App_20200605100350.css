@@ -94,7 +94,7 @@
 }
 
 .commentIssue:hover {
-    color: blue !important;
+    color: blue;
     cursor: pointer;
 }
 
