@@ -9,11 +9,11 @@ export default function AlyssaModal(props) {
     const body = useRef();
     return (
         <div>
-            <Button variant="success" onClick={props.handleShow}>
+            <Button variant="success" onClick={props.handleAlyssaShow}>
                 New Issue
       </Button>
 
-            <Modal show={props.show} onHide={props.handleClose}>
+            <Modal show={props.alyssaShow} onHide={props.handleAlyssaClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>New Issue</Modal.Title>
                 </Modal.Header>
@@ -22,7 +22,7 @@ export default function AlyssaModal(props) {
                     <Form.Control ref={body} as="textarea" rows="3" placeholder="Leave a comment"/>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="danger" onClick={props.handleClose}>
+                    <Button variant="danger" onClick={props.handleAlyssaClose}>
                         Close
           </Button>
                     <Button variant="success" onClick={() => { props.postNewIssues(title.current.value, body.current.value)}}>

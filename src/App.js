@@ -14,7 +14,11 @@ const postURL =
 function App() {
   const [token, setToken] = useState(null);
   const [show, setShow] = useState(false);
+  const [alyssaShow, setAlyssaShow] = useState(false);
   const [warningMessage, setWarningMessage] = useState("");
+
+  const handleAlyssaClose = () => setAlyssaShow(false);
+  const handleAlyssaShow = () => setAlyssaShow(true);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -83,7 +87,7 @@ function App() {
       body: JSON.stringify(issue),
     });
     console.log("what is response", response);
-    handleClose();
+    handleAlyssaClose();
   };
 
   useEffect(() => {
@@ -102,7 +106,7 @@ function App() {
         keyboard={false}
         onHide={handleClose}
       />
-      <AlyssaModal postNewIssues={postNewIssues} />
+      <AlyssaModal postNewIssues={postNewIssues} alyssaShow={alyssaShow} handleAlyssaClose={handleAlyssaClose} handleAlyssaShow={handleAlyssaShow}/>
       <IssuesTable result={result} />
     </div>
   );
