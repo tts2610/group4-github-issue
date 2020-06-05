@@ -58,7 +58,7 @@ export default function Issue({ issue }) {
     <>
       <li className="list-group-item lh-condensed issue">
         <Row>
-          <Col sm={9} style={{ display: "flex" }}>
+          <Col sm={8} style={{ display: "flex" }}>
             <span>
               <i className="fal fa-exclamation-circle mr-3"></i>
             </span>
@@ -100,25 +100,17 @@ export default function Issue({ issue }) {
               </small>
             </span>
           </Col>
-          <Col
-            sm={3}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-start",
-            }}
-          >
-            <span>
+          <Col sm={4}>
+            <div>
               {issue.assignee != null && (
                 <img
-                  width={25}
-                  height={25}
+                  width={30}
+                  height={30}
                   src={issue.assignee.avatar_url}
                   alt=""
                 ></img>
               )}
-            </span>
-
+            </div>
             <span className="text-muted commentIssue">
               <i className="fal fa-comment-alt fa-sm-x2 issueCommentIcon"></i>
               <span className="issueCommentNumber ml-1">{issue.comments}</span>

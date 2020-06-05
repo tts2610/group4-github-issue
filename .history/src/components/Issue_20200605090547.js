@@ -100,19 +100,12 @@ export default function Issue({ issue }) {
               </small>
             </span>
           </Col>
-          <Col
-            sm={3}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-start",
-            }}
-          >
+          <Col sm={3}>
             <span>
               {issue.assignee != null && (
                 <img
-                  width={25}
-                  height={25}
+                  width={30}
+                  height={30}
                   src={issue.assignee.avatar_url}
                   alt=""
                 ></img>

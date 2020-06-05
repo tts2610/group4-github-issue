@@ -14,10 +14,9 @@ export default class IssuesTable extends Component {
 
   fetchIssues() {
     axios
-      .get(`https://api.github.com/repos/facebook/react/issues?per_page=50`)
+      .get(`https://api.github.com/repos/facebook/react/issues&per_page=50`)
       .then((res) => {
         const issues = res.data;
-        console.log(issues);
         this.setState({
           issueList: issues,
         });

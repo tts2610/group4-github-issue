@@ -105,14 +105,14 @@ export default function Issue({ issue }) {
             style={{
               display: "flex",
               justifyContent: "space-between",
-              alignItems: "flex-start",
+              alignItems: "center",
             }}
           >
             <span>
               {issue.assignee != null && (
                 <img
-                  width={25}
-                  height={25}
+                  width={30}
+                  height={30}
                   src={issue.assignee.avatar_url}
                   alt=""
                 ></img>
