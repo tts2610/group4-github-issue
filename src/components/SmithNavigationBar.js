@@ -21,7 +21,7 @@ export default function SmithNavigationBar(props) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-            <Form inline onSubmit={event => {event.preventDefault(); props.getIssues(inputValue.toLowerCase(), event); setInputValue("")}}>
+            <Form inline onSubmit={event => {event.preventDefault(); props.getIssues(inputValue.toLowerCase().replace(/\s/g,''), event); setInputValue("")}}>
             <FormControl id="search-bar" type="text"  placeholder="owner/repos" className="mr-sm-2" value={inputValue} onChange={event => setInputValue(event.target.value)} />
             </Form>
             </Nav>
