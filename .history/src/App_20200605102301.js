@@ -52,7 +52,7 @@ function App() {
     let url = `https://api.github.com/repos/${issues}/issues`;
     let data = await fetch(url);
     let result = await data.json();
-    // console.log("what is result", result);
+    console.log("what is result", result);
     if (result.message === "Not Found") {
       setWarningMessage(
         "Your search yields no result. Please enter a valid owner/repos"
@@ -85,7 +85,6 @@ function App() {
 
   useEffect(() => {
     getToken();
-    getIssues("facebook/react");
   }, []);
 
   return (
@@ -100,7 +99,7 @@ function App() {
         onHide={handleClose}
       />
       <AlyssaModal postNewIssues={postNewIssues} />
-      <IssuesTable result={result} />
+      {/* <IssuesTable result={result} /> */}
     </div>
   );
 }
