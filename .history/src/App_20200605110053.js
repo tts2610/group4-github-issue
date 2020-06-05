@@ -8,8 +8,8 @@ import SmithWarningModal from "./components/SmithWarningModal";
 const clientId = process.env.REACT_APP_CLIENT_ID;
 
 // const postURL = "https://github.com/tts2610/group4-github-issue/issues";
-// const postURL =
-//   "https://api.github.com/repos/tts2610/group4-github-issue/issues";
+const postURL =
+  "https://api.github.com/repos/tts2610/group4-github-issue/issues";
 
 function App() {
   const [token, setToken] = useState(null);
@@ -77,7 +77,7 @@ function App() {
 
   const postNewIssues = async (title, body) => {
     const issue = { title: title, body: body };
-    const url = `https://api.github.com/repos/${postUrl}/issues`;
+    const url = `https://api.github.com/repos/${postURL}/`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -88,9 +88,6 @@ function App() {
     });
     console.log("what is response", response);
     handleAlyssaClose();
-
-    // rerender ui after posting
-    getIssues(postUrl);
   };
 
   useEffect(() => {

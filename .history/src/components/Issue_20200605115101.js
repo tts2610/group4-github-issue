@@ -3,7 +3,6 @@ import { Row, Col } from "react-bootstrap";
 import Moment from "react-moment";
 import PopoverStickOnHover from "./PopoverStickOnHover";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import IssueDetail from "./IssueDetail";
 
 const popOverStyling = {
   paddingLeft: "10px",
@@ -24,22 +23,14 @@ export default function Issue({ issue }) {
           <div>
             <div>
               <Router>
-                <Link to="/issueDetail">
-                  {" "}
-                  <span className="overlay-title">
-                    {issue.title.includes("_")
-                      ? issue.title.replace(/_/g, function (match) {
-                          t++;
-                          return t === 4 ? "-" : match;
-                        })
-                      : issue.title}
-                  </span>{" "}
-                </Link>
-                <Route
-                  exact
-                  path="/issueDetail"
-                  component={IssueDetail}
-                ></Route>
+                <span className="overlay-title">
+                  {issue.title.includes("_")
+                    ? issue.title.replace(/_/g, function (match) {
+                        t++;
+                        return t === 4 ? "-" : match;
+                      })
+                    : issue.title}
+                </span>
               </Router>
               <span className="overlay-number">#{issue.number}</span>
             </div>

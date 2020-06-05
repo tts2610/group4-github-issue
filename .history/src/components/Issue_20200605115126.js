@@ -3,7 +3,6 @@ import { Row, Col } from "react-bootstrap";
 import Moment from "react-moment";
 import PopoverStickOnHover from "./PopoverStickOnHover";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import IssueDetail from "./IssueDetail";
 
 const popOverStyling = {
   paddingLeft: "10px",
@@ -24,7 +23,7 @@ export default function Issue({ issue }) {
           <div>
             <div>
               <Router>
-                <Link to="/issueDetail">
+                <Link to="/team">
                   {" "}
                   <span className="overlay-title">
                     {issue.title.includes("_")
@@ -35,11 +34,6 @@ export default function Issue({ issue }) {
                       : issue.title}
                   </span>{" "}
                 </Link>
-                <Route
-                  exact
-                  path="/issueDetail"
-                  component={IssueDetail}
-                ></Route>
               </Router>
               <span className="overlay-number">#{issue.number}</span>
             </div>
