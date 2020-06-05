@@ -1,14 +1,26 @@
 /* SMITH */
 #logo-img{
     border-radius: 100%;
+    background-color: transparent;
+}
+
+#logo-img:hover{
     padding:2px;
     background-color: white;
 }
 
+
 #search-bar{
     min-width: 250px;
     font-size: small;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
 }
+
+#search-bar:hover{
+    width: 300px%;
+}
+
 /* END-SMITH */
 
 

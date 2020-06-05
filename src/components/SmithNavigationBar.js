@@ -7,7 +7,7 @@ export default function SmithNavigationBar(props) {
 
     return (
         <div>
-            <Navbar collapseOnSelect className="sticky top" expand="lg" bg="dark" variant="dark">
+            <Navbar collapseOnSelect className="sticky top" expand="md" bg="dark" variant="dark">
             <Navbar.Brand href="#home">
             <img
                 src={GithubLogo}
@@ -21,7 +21,7 @@ export default function SmithNavigationBar(props) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-            <Form inline onSubmit={event => {event.preventDefault(); props.getIssues(inputValue, event); setInputValue("")}}>
+            <Form inline onSubmit={event => {event.preventDefault(); props.getIssues(inputValue.toLowerCase(), event); setInputValue("")}}>
             <FormControl type="text" id="search-bar" placeholder="owner/repos" className="mr-sm-2" value={inputValue} onChange={event => setInputValue(event.target.value)} />
             </Form>
             </Nav>

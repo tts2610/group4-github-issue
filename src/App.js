@@ -46,6 +46,11 @@ function App() {
     console.log("what is result", result);
     if(result.message==="Not Found"){
       alert("Search not found, please input a valid owner/repos.")
+      return
+    }
+    if (result.length===0){
+      alert("This repository reports no issues!")
+      return
     }
   };
 
