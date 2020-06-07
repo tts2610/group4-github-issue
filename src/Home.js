@@ -65,7 +65,6 @@ function Home() {
     } else {
       link = `https://api.github.com/repos/${issues}/issues?page=${page}`;
     }
-    setactivePage(page)
     let data = await fetch(link);
     let result = await data.json();
     console.log("what is result", result);
@@ -82,6 +81,7 @@ function Home() {
       return;
     }
     setResult(result);
+    setactivePage(page)
     setPostUrl(issues);
   };
 
