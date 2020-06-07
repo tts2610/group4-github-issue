@@ -30,6 +30,10 @@ function Home() {
     "https://api.github.com/repos/tts2610/group4-github-issue/issues"
   );
 
+  // for filters
+  const [authorList, setAuthorList] = useState([]);
+  const [labelList, setLabelList] = useState([]);
+
   const getToken = () => {
     const existingToken = localStorage.getItem("token"); //if we already have token from localStorage just get that
     const accessToken =
@@ -65,6 +69,7 @@ function Home() {
     } else {
       link = `https://api.github.com/repos/${issues}/issues?page=${page}`;
     }
+    setactivePage(page);
     let data = await fetch(link);
     let result = await data.json();
     console.log("what is result", result);
@@ -83,6 +88,30 @@ function Home() {
     setResult(result);
     setactivePage(page)
     setPostUrl(issues);
+
+    // get Author List
+    let tempAuthorList = [];
+    let tempLabelList = [];
+    result.forEach((element) => {
+      tempAuthorList.push(element.user);
+      tempLabelList = [...tempLabelList, ...element.labels];
+    });
+    const uniqueAuthorList = Array.from(
+      new Set(tempAuthorList.map((a) => a.login))
+    ).map((login) => {
+      return tempAuthorList.find((a) => a.login === login);
+    });
+
+    const uniqueLabelList = Array.from(
+      new Set(tempLabelList.map((a) => a.id))
+    ).map((id) => {
+      return tempLabelList.find((a) => a.id === id);
+    });
+
+    // console.log(uniqueLabelList);
+
+    setAuthorList(uniqueAuthorList);
+    setLabelList(uniqueLabelList);
   };
 
   const postNewIssues = async (title, body) => {
@@ -110,13 +139,17 @@ function Home() {
 
   useEffect(() => {
     getToken();
-    getIssues("facebook/react","",1);
+    getIssues("facebook/react", "", 1);
   }, []);
 
   return (
     <div>
       {console.log("What is token", token)}
-      <SmithNavigationBar getIssues={getIssues} input handleAlyssaShow={handleAlyssaShow}/>
+      <SmithNavigationBar
+        getIssues={getIssues}
+        input
+        handleAlyssaShow={handleAlyssaShow}
+      />
       <SmithWarningModal
         show={show}
         warningMessage={warningMessage}
@@ -130,7 +163,13 @@ function Home() {
         handleAlyssaClose={handleAlyssaClose}
         handleAlyssaShow={handleAlyssaShow}
       />
-      <IssuesTable activePage ={activePage} setactivePage={setactivePage} result={result} getIssues={getIssues} url={postUrl} />
+      <IssuesTable
+        result={result}
+        getIssues={getIssues}
+        url={postUrl}
+        authorList={authorList}
+        labelList={labelList}
+      />
     </div>
   );
 }
