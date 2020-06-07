@@ -17,7 +17,7 @@ function Home() {
   const [show, setShow] = useState(false);
   const [alyssaShow, setAlyssaShow] = useState(false);
   const [warningMessage, setWarningMessage] = useState("");
-
+  const [activePage, setactivePage] = useState(0);
   const handleAlyssaClose = () => setAlyssaShow(false);
   const handleAlyssaShow = () => setAlyssaShow(true);
 
@@ -33,6 +33,9 @@ function Home() {
   const [duyShow, setDuyShow] = useState(false);
   const handleDuyClose = () => setDuyShow(false);
   const handleDuyShow = () => setDuyShow(true);
+  // for filters
+  const [authorList, setAuthorList] = useState([]);
+  const [labelList, setLabelList] = useState([]);
 
   const getToken = () => {
     const existingToken = localStorage.getItem("token"); //if we already have token from localStorage just get that
@@ -69,6 +72,7 @@ function Home() {
     } else {
       link = `https://api.github.com/repos/${issues}/issues?page=${page}`;
     }
+    setactivePage(page);
     let data = await fetch(link);
     let result = await data.json();
     console.log("what is result", result);
@@ -85,7 +89,32 @@ function Home() {
       return;
     }
     setResult(result);
+    setactivePage(page)
     setPostUrl(issues);
+
+    // get Author List
+    let tempAuthorList = [];
+    let tempLabelList = [];
+    result.forEach((element) => {
+      tempAuthorList.push(element.user);
+      tempLabelList = [...tempLabelList, ...element.labels];
+    });
+    const uniqueAuthorList = Array.from(
+      new Set(tempAuthorList.map((a) => a.login))
+    ).map((login) => {
+      return tempAuthorList.find((a) => a.login === login);
+    });
+
+    const uniqueLabelList = Array.from(
+      new Set(tempLabelList.map((a) => a.id))
+    ).map((id) => {
+      return tempLabelList.find((a) => a.id === id);
+    });
+
+    // console.log(uniqueLabelList);
+
+    setAuthorList(uniqueAuthorList);
+    setLabelList(uniqueLabelList);
   };
 
   const postNewIssues = async (title, body) => {
@@ -135,13 +164,17 @@ function Home() {
 
   useEffect(() => {
     getToken();
-    getIssues("facebook/react");
+    getIssues("facebook/react", "", 1);
   }, []);
 
   return (
     <div>
       {console.log("What is token", token)}
-      <SmithNavigationBar getIssues={getIssues} input />
+      <SmithNavigationBar
+        getIssues={getIssues}
+        input
+        handleAlyssaShow={handleAlyssaShow}
+      />
       <SmithWarningModal
         show={show}
         warningMessage={warningMessage}
@@ -155,7 +188,13 @@ function Home() {
         handleAlyssaClose={handleAlyssaClose}
         handleAlyssaShow={handleAlyssaShow}
       />
-      <IssuesTable result={result} getIssues={getIssues} url={postUrl} />
+      <IssuesTable
+        result={result}
+        getIssues={getIssues}
+        url={postUrl}
+        authorList={authorList}
+        labelList={labelList}
+      />
     </div>
   );
 }
