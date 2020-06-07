@@ -45,7 +45,7 @@ export default function IssueDetail() {
       <Container id="commentSection">
         {comments.map((comment) => {
           return (
-            <Row className="mb-5">
+            <Row>
               <Col sm={1}>
                 <img
                   src={comment.user.avatar_url}

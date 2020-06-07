@@ -267,16 +267,8 @@ input::-webkit-input-placeholder {
     font-weight: bolder;
 }
 
-#commentSection pre {
-    /* border: 1px solid #ccc; */
-    background: #f8f8f8;
-}
-
-#commentSection blockquote {
-    color: #666;
-    margin: 0;
-    padding-left: 3em;
-    border-left: 0.5em #eee solid;
+.pre {
+    border: 1px solid #ccc;
 }
 
 
