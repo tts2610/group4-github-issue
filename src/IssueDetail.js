@@ -5,14 +5,16 @@ import { useParams, useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Moment from "react-moment";
 const ReactMarkdown = require("react-markdown");
+
+
 export default function IssueDetail(props) {
-  const [currentIssue, setCurrentIssue] = useState("")
+  // const [currentIssue, setCurrentIssue] = useState(null)
   const [comments, setComments] = useState([]);
   let { issue } = useLocation();
 
   const getIssue = () =>{
-    setCurrentIssue(issue)
-    getComment(currentIssue.comments_url)
+    console.log(issue )
+    getComment(issue? issue.comments_url : "https://api.github.com/facebook/react/issues/19094")
   }
 
   const getComment = async (issue) => {
@@ -31,7 +33,7 @@ export default function IssueDetail(props) {
 
   const postNewComment = async (body) => {
     const issue = { body: body }; //input here
-    const url = currentIssue.comments_url;
+    const url = issue.comments_url;
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -50,16 +52,16 @@ export default function IssueDetail(props) {
     getIssue()
     }, []);
 
-  if (currentIssue !== undefined)
+    if (issue !== undefined)
     return (
     <div>
       <SmithNavigationBar input />
-      <div id="issue-big"><span className="issue-big-title">{currentIssue.title}</span><span id="issue-big-number">#{currentIssue.number}</span></div>
-      <Container id="issueSection">
+      <div id="issue-big"><span className="issue-big-title">{issue.title}</span><span id="issue-big-number">#{issue.number}</span></div>
+     <Container id="issueSection">
             <Row className="mb-5">
               <Col sm={1}>
                 <img
-                  src={currentIssue.user.avatar_url}
+                  src={issue.user.avatar_url}
                   alt=""
                   width="50"
                   height="50"
@@ -69,19 +71,19 @@ export default function IssueDetail(props) {
                 <Card>
                   <Card.Header>
                     <span style={{ fontWeight: "bolder" }}>
-                      {currentIssue.user.login}
+                      {issue.user.login}
                     </span>{" "}
-                    created this issue on <Moment fromNow>{currentIssue.created_at}</Moment> - {currentIssue.comments} comments.
+                    created this issue on <Moment fromNow>{issue.created_at}</Moment> - {issue.comments} comments.
                   </Card.Header>
                   <Card.Body>
                     <Card.Text>
-                      <ReactMarkdown source={currentIssue.body} escapeHtml={false} />
+                      <ReactMarkdown source={issue.body} escapeHtml={false} />
                     </Card.Text>
                   </Card.Body>
                 </Card>
               </Col>
             </Row>
-      </Container>
+      </Container> 
       
       <Container id="commentSection">
         {comments.map((comment) => {
@@ -117,7 +119,8 @@ export default function IssueDetail(props) {
     </div>
   );
   else {
-    return <div></div>;
+    window.location.href = "/";
+    return
   }
 }
 
