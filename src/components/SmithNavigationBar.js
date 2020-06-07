@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 import React, { useState } from "react";
 import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
 import PupHubLogo from "./pup-hub-logo.png";
@@ -35,26 +36,17 @@ export default function SmithNavigationBar(props) {
                 window.location.href = "/";
                 return;
               } else if (window.location.pathname === "/") {
-                {
-                  event.preventDefault();
+                {event.preventDefault();
                   props.getIssues(
                     inputValue.toLowerCase().replace(/\s/g, ""),
                     event,
-                    1
+                    1,
                   );
                   setInputValue("");
                 }
               }
             }}
           >
-            {/* <FormControl
-              id="search-bar"
-              type="text"
-              placeholder="owner/repos"
-              className="mr-sm-2"
-              value={inputValue}
-              onChange={(event) => setInputValue(event.target.value)}
-            /> */}
             <input
               type="search"
               placeholder="Search or Jump to"
