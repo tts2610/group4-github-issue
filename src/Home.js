@@ -30,6 +30,10 @@ function Home() {
     "https://api.github.com/repos/tts2610/group4-github-issue/issues"
   );
 
+  const [duyShow, setDuyShow] = useState(false);
+  const handleDuyClose = () => setDuyShow(false);
+  const handleDuyShow = () => setDuyShow(true);
+
   const getToken = () => {
     const existingToken = localStorage.getItem("token"); //if we already have token from localStorage just get that
     const accessToken =
@@ -106,6 +110,28 @@ function Home() {
     // rerender ui after posting
     getIssues(postUrl);
   };
+
+  const getComment = async (issueNumber) => {
+    let url = `https://api.github.com/repos/${postUrl}/issues/${issueNumber}/comments`;
+    let data = await fetch(url);
+    let result = await data.json();
+    console.log("HEY GET COMMENT", result)
+  };
+  //post comment here
+  const postNewComment = async (body) => {
+    const issue = { body: body }; //input here
+    const url = `https://api.github.com/repos/tts2610/group4-github-issue/issues/${postUrl}/comments`;
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Authorization: `token ${token}`
+      },
+      body: JSON.stringify(issue),
+    });
+    console.log("what is response", response);
+  };
+
 
   useEffect(() => {
     getToken();

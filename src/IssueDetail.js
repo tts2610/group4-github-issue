@@ -9,7 +9,6 @@ export default function IssueDetail() {
     <div>
       <h1>{issueId}</h1>
 
-
       <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
         <Row>
           <Col sm={4}>
@@ -32,8 +31,7 @@ export default function IssueDetail() {
               <Tab.Pane eventKey="#link2">
                 Review
                 {/* <Sonnet /> */}
-              </T
-              ab.Pane>
+              </Tab.Pane>
             </Tab.Content>
           </Col>
         </Row>
