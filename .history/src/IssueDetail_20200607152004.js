@@ -45,7 +45,7 @@ export default function IssueDetail() {
       <Container id="commentSection">
         {comments.map((comment) => {
           return (
-            <Row className="mb-5">
+            <Row>
               <Col sm={1}>
                 <img
                   src={comment.user.avatar_url}
@@ -60,7 +60,7 @@ export default function IssueDetail() {
                     <span style={{ fontWeight: "bolder" }}>
                       {comment.user.login}
                     </span>{" "}
-                    commented <Moment fromNow>{comment.created_at}</Moment>
+                    <Moment fromNow>{comment.created_at}</Moment>
                   </Card.Header>
                   <Card.Body>
                     <Card.Text>

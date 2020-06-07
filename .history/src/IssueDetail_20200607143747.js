@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import SmithNavigationBar from "./components/SmithNavigationBar";
-import { Card, Button, Container, Col, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Moment from "react-moment";
-const ReactMarkdown = require("react-markdown");
 export default function IssueDetail() {
   let { issueId } = useParams();
   const [comments, setComments] = useState([]);
@@ -42,37 +40,60 @@ export default function IssueDetail() {
     <div>
       <SmithNavigationBar input />
       <h1>{issueId}</h1>
-      <Container id="commentSection">
-        {comments.map((comment) => {
-          return (
-            <Row className="mb-5">
-              <Col sm={1}>
-                <img
-                  src={comment.user.avatar_url}
-                  alt=""
-                  width="50"
-                  height="50"
-                ></img>
-              </Col>
-              <Col sm={11}>
-                <Card>
-                  <Card.Header>
-                    <span style={{ fontWeight: "bolder" }}>
-                      {comment.user.login}
-                    </span>{" "}
-                    commented <Moment fromNow>{comment.created_at}</Moment>
-                  </Card.Header>
-                  <Card.Body>
-                    <Card.Text>
-                      <ReactMarkdown source={comment.body} escapeHtml={true} />
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Row>
-          );
-        })}
-      </Container>
+      <section class="timeline">
+        <div class="container">
+          {comments.map((x, index) => {
+            if (index % 2 === 0) {
+              return (
+                <div class="timeline-item">
+                  <div class="timeline-img"></div>
+                  <div class="timeline-content timeline-card js--fadeInLeft">
+                    <div
+                      class="timeline-img-header"
+                      style={{
+                        background: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(${x.user.avatar_url}) center center no-repeat`,
+                      }}
+                    >
+                      <h2>{x.user.login}</h2>
+                    </div>
+                    <div class="date">
+                      <Moment fromNow>{x.created_at}</Moment>
+                    </div>
+                    <p>
+                      {x.body.replace(/```js((.|\n)*)```\n/g, (match) => (
+                        <div style={{ backgroundColor: "#f6f8fa" }}>
+                          {match[1]}
+                        </div>
+                      ))}
+                    </p>
+                  </div>
+                </div>
+              );
+            } else {
+              return (
+                <div class="timeline-item">
+                  <div class="timeline-img"></div>
+
+                  <div class="timeline-content timeline-card js--fadeInRight">
+                    <div
+                      class="timeline-img-header"
+                      style={{
+                        background: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(${x.user.avatar_url}) center center no-repeat`,
+                      }}
+                    >
+                      <h2>{x.user.login}</h2>
+                    </div>
+                    <div class="date">
+                      <Moment fromNow>{x.created_at}</Moment>
+                    </div>
+                    <p>{x.body}</p>
+                  </div>
+                </div>
+              );
+            }
+          })}
+        </div>
+      </section>
     </div>
   );
 }

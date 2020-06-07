@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SmithNavigationBar from "./components/SmithNavigationBar";
-import { Card, Button, Container, Col, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Moment from "react-moment";
-const ReactMarkdown = require("react-markdown");
 export default function IssueDetail() {
   let { issueId } = useParams();
   const [comments, setComments] = useState([]);
@@ -17,7 +14,6 @@ export default function IssueDetail() {
     let data = await fetch(url);
     let result = await data.json();
     console.log("HEY GET COMMENT", result);
-    setComments(result);
   };
 
   const [token, setToken] = useState(null);
@@ -42,37 +38,47 @@ export default function IssueDetail() {
     <div>
       <SmithNavigationBar input />
       <h1>{issueId}</h1>
-      <Container id="commentSection">
-        {comments.map((comment) => {
-          return (
-            <Row className="mb-5">
-              <Col sm={1}>
-                <img
-                  src={comment.user.avatar_url}
-                  alt=""
-                  width="50"
-                  height="50"
-                ></img>
-              </Col>
-              <Col sm={11}>
-                <Card>
-                  <Card.Header>
-                    <span style={{ fontWeight: "bolder" }}>
-                      {comment.user.login}
-                    </span>{" "}
-                    commented <Moment fromNow>{comment.created_at}</Moment>
-                  </Card.Header>
-                  <Card.Body>
-                    <Card.Text>
-                      <ReactMarkdown source={comment.body} escapeHtml={true} />
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Row>
-          );
-        })}
-      </Container>
+      <section class="timeline">
+        <div class="container">
+          <div class="timeline-item">
+            <div class="timeline-img"></div>
+
+            <div class="timeline-content js--fadeInLeft">
+              <h2>Title</h2>
+              <div class="date">1 MAY 2016</div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime
+                ipsa ratione omnis alias cupiditate saepe atque totam aperiam
+                sed nulla voluptatem recusandae dolor, nostrum excepturi amet in
+                dolores. Alias, ullam.
+              </p>
+              <a class="bnt-more" href="javascript:void(0)">
+                More
+              </a>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-img"></div>
+
+            <div class="timeline-content timeline-card js--fadeInRight">
+              <div class="timeline-img-header">
+                <h2>Card Title</h2>
+              </div>
+              <div class="date">25 MAY 2016</div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime
+                ipsa ratione omnis alias cupiditate saepe atque totam aperiam
+                sed nulla voluptatem recusandae dolor, nostrum excepturi amet in
+                dolores. Alias, ullam.
+              </p>
+              <a class="bnt-more" href="javascript:void(0)">
+                More
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

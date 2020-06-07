@@ -42,10 +42,10 @@ export default function IssueDetail() {
     <div>
       <SmithNavigationBar input />
       <h1>{issueId}</h1>
-      <Container id="commentSection">
+      <Container>
         {comments.map((comment) => {
           return (
-            <Row className="mb-5">
+            <Row>
               <Col sm={1}>
                 <img
                   src={comment.user.avatar_url}
@@ -56,16 +56,14 @@ export default function IssueDetail() {
               </Col>
               <Col sm={11}>
                 <Card>
-                  <Card.Header>
-                    <span style={{ fontWeight: "bolder" }}>
-                      {comment.user.login}
-                    </span>{" "}
-                    commented <Moment fromNow>{comment.created_at}</Moment>
-                  </Card.Header>
+                  <Card.Header>Featured</Card.Header>
                   <Card.Body>
+                    <Card.Title>Special title treatment</Card.Title>
                     <Card.Text>
-                      <ReactMarkdown source={comment.body} escapeHtml={true} />
+                      With supporting text below as a natural lead-in to
+                      additional content.
                     </Card.Text>
+                    <Button variant="primary">Go somewhere</Button>
                   </Card.Body>
                 </Card>
               </Col>
