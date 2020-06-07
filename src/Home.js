@@ -89,7 +89,8 @@ function Home() {
       return;
     }
     setResult(result);
-    setactivePage(page)
+    console.log("What is result", result)
+    setactivePage(page);
     setPostUrl(issues);
 
     // get Author List
