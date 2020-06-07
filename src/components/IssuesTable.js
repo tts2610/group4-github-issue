@@ -5,10 +5,9 @@ import axios from "axios";
 import Issue from "./Issue";
 import Pagination from "react-js-pagination";
 
-export default function IssuesTable({ result, getIssues, url }) {
-  const [activePage, setactivePage] = useState(0);
+export default function IssuesTable({ result, getIssues, url, activePage, setactivePage }) {
   function handlePageChange(pageNumber) {
-    setactivePage(pageNumber);
+    // setactivePage(pageNumber);
     console.log(pageNumber);
     getIssues(url, "", pageNumber);
   }

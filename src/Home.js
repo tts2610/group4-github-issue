@@ -17,7 +17,7 @@ function Home() {
   const [show, setShow] = useState(false);
   const [alyssaShow, setAlyssaShow] = useState(false);
   const [warningMessage, setWarningMessage] = useState("");
-
+  const [activePage, setactivePage] = useState(0);
   const handleAlyssaClose = () => setAlyssaShow(false);
   const handleAlyssaShow = () => setAlyssaShow(true);
 
@@ -65,6 +65,7 @@ function Home() {
     } else {
       link = `https://api.github.com/repos/${issues}/issues?page=${page}`;
     }
+    setactivePage(page)
     let data = await fetch(link);
     let result = await data.json();
     console.log("what is result", result);
@@ -109,13 +110,13 @@ function Home() {
 
   useEffect(() => {
     getToken();
-    getIssues("facebook/react");
+    getIssues("facebook/react","",1);
   }, []);
 
   return (
     <div>
       {console.log("What is token", token)}
-      <SmithNavigationBar getIssues={getIssues} input />
+      <SmithNavigationBar getIssues={getIssues} input handleAlyssaShow={handleAlyssaShow}/>
       <SmithWarningModal
         show={show}
         warningMessage={warningMessage}
@@ -129,7 +130,7 @@ function Home() {
         handleAlyssaClose={handleAlyssaClose}
         handleAlyssaShow={handleAlyssaShow}
       />
-      <IssuesTable result={result} getIssues={getIssues} url={postUrl} />
+      <IssuesTable activePage ={activePage} setactivePage={setactivePage} result={result} getIssues={getIssues} url={postUrl} />
     </div>
   );
 }

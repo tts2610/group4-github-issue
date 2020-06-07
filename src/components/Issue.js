@@ -118,8 +118,8 @@ export default function Issue({ issue }) {
             <span>
               {issue.assignee != null && (
                 <img
-                  width={25}
-                  height={25}
+                  width={50}
+                  height={50}
                   src={issue.assignee.avatar_url}
                   alt=""
                 ></img>

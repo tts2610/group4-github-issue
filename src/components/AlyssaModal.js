@@ -9,10 +9,6 @@ export default function AlyssaModal(props) {
     const body = useRef();
     return (
         <div>
-            <Button variant="success" onClick={props.handleAlyssaShow}>
-                New Issue
-      </Button>
-
             <Modal show={props.alyssaShow} onHide={props.handleAlyssaClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>New Issue</Modal.Title>
