@@ -164,6 +164,7 @@ function Home() {
 
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     getToken();
     getIssues("facebook/react", "", 1);
   }, []);

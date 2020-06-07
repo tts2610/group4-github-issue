@@ -29,8 +29,11 @@ export default function SmithNavigationBar(props) {
           <Form
             inline
             onSubmit={(event) => {
-              if (window.location.pathname === "/IssueDetail?") {
+              if (window.location.pathname === "/IssueDetail/") {
+                event.preventDefault();
+                setInputValue("");
                 window.location.href = "/";
+                return;
               } else if (window.location.pathname === "/") {
                 {
                   event.preventDefault();

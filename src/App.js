@@ -10,7 +10,7 @@ export default function App() {
     <div>
       <Router>
         <Switch>
-          <Route path="/issueDetail/:issueId">
+          <Route path="/IssueDetail/">
             <IssueDetail />
           </Route>
           <Route path="/">

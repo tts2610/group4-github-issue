@@ -1,19 +1,26 @@
 import React, { useState, useEffect } from "react";
 import SmithNavigationBar from "./components/SmithNavigationBar";
 import { Card, Button, Container, Col, Row } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Moment from "react-moment";
 const ReactMarkdown = require("react-markdown");
-export default function IssueDetail() {
-  let { issueId } = useParams();
+export default function IssueDetail(props) {
+  const [currentIssue, setCurrentIssue] = useState("")
   const [comments, setComments] = useState([]);
-  useEffect(() => {
-    getComment(issueId);
-  }, []);
+  let { issue } = useLocation();
 
-  const getComment = async (issueId) => {
-    let url = `https://api.github.com/repos/facebook/react/issues/${issueId}/comments`;
+  const getIssue = () =>{
+    setCurrentIssue(issue)
+    getComment(currentIssue.comments_url)
+  }
+
+  const getComment = async (issue) => {
+    if (issue === undefined){
+      window.location.href = "/";
+      return
+    }
+    let url = issue;
     let data = await fetch(url);
     let result = await data.json();
     console.log("HEY GET COMMENT", result);
@@ -21,9 +28,10 @@ export default function IssueDetail() {
   };
 
   const [token, setToken] = useState(null);
+
   const postNewComment = async (body) => {
     const issue = { body: body }; //input here
-    const url = `https://api.github.com/repos/tts2610/group4-github-issue/issues/${issueId}/comments`;
+    const url = currentIssue.comments_url;
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -37,11 +45,44 @@ export default function IssueDetail() {
 
   const [] = useState(false);
 
-  return (
-    // ve bang o day
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    getIssue()
+    }, []);
+
+  if (currentIssue !== undefined)
+    return (
     <div>
       <SmithNavigationBar input />
-      <h1>{issueId}</h1>
+      <div id="issue-big"><span className="issue-big-title">{currentIssue.title}</span><span id="issue-big-number">#{currentIssue.number}</span></div>
+      <Container id="issueSection">
+            <Row className="mb-5">
+              <Col sm={1}>
+                <img
+                  src={currentIssue.user.avatar_url}
+                  alt=""
+                  width="50"
+                  height="50"
+                ></img>
+              </Col>
+              <Col sm={11}>
+                <Card>
+                  <Card.Header>
+                    <span style={{ fontWeight: "bolder" }}>
+                      {currentIssue.user.login}
+                    </span>{" "}
+                    created this issue on <Moment fromNow>{currentIssue.created_at}</Moment> - {currentIssue.comments} comments.
+                  </Card.Header>
+                  <Card.Body>
+                    <Card.Text>
+                      <ReactMarkdown source={currentIssue.body} escapeHtml={false} />
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
+      </Container>
+      
       <Container id="commentSection">
         {comments.map((comment) => {
           return (
@@ -64,7 +105,7 @@ export default function IssueDetail() {
                   </Card.Header>
                   <Card.Body>
                     <Card.Text>
-                      <ReactMarkdown source={comment.body} escapeHtml={true} />
+                      <ReactMarkdown source={comment.body} escapeHtml={false} />
                     </Card.Text>
                   </Card.Body>
                 </Card>
@@ -75,6 +116,9 @@ export default function IssueDetail() {
       </Container>
     </div>
   );
+  else {
+    return <div></div>;
+  }
 }
 
 {
