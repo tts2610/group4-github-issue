@@ -21,6 +21,8 @@ export default function LabelDropdown({ labelList, customizeResult }) {
   useEffect(() => {
     setMyList(labelList);
   }, [labelList]);
+
+  
   const handleOnChange = (e) => {
     setValue(e.target.value);
     labelList = labelList.filter((x) => x.name.includes(e.target.value));

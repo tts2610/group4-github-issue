@@ -284,6 +284,7 @@ input::-webkit-input-placeholder {
 .timeline-item {
     width: 100%;
     margin-bottom: 70px;
+    max-height: 100px;
 }
 
 .timeline-item:nth-child(even) .timeline-content {

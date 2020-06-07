@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import SmithNavigationBar from "./components/SmithNavigationBar";
 import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Moment from "react-moment";
 export default function IssueDetail() {
   let { issueId } = useParams();
   const [comments, setComments] = useState([]);
@@ -48,53 +47,44 @@ export default function IssueDetail() {
                 <div class="timeline-item">
                   <div class="timeline-img"></div>
                   <div class="timeline-content timeline-card js--fadeInLeft">
-                    <div
-                      class="timeline-img-header"
-                      style={{
-                        background: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(${x.user.avatar_url}) center center no-repeat`,
-                      }}
-                    >
-                      <h2>{x.user.login}</h2>
+                    <div class="timeline-img-header">
+                      <h2>Card Title</h2>
                     </div>
-                    <div class="date">
-                      <Moment fromNow>{x.created_at}</Moment>
-                    </div>
+                    <div class="date">25 MAY 2016</div>
                     <p>
-                      {x.body.replace(/```js((.|\n)*)```\n/, (match) => {
-                        console.log("aaa");
-                        return (
-                          <div style={{ backgroundColor: "#f6f8fa" }}>
-                            {console.log(match[1])}
-                          </div>
-                        );
-                      })}
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Maxime ipsa ratione omnis alias cupiditate saepe atque
+                      totam aperiam sed nulla voluptatem recusandae dolor,
+                      nostrum excepturi amet in dolores. Alias, ullam.
                     </p>
-                  </div>
-                </div>
-              );
-            } else {
-              return (
-                <div class="timeline-item">
-                  <div class="timeline-img"></div>
-
-                  <div class="timeline-content timeline-card js--fadeInRight">
-                    <div
-                      class="timeline-img-header"
-                      style={{
-                        background: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(${x.user.avatar_url}) center center no-repeat`,
-                      }}
-                    >
-                      <h2>{x.user.login}</h2>
-                    </div>
-                    <div class="date">
-                      <Moment fromNow>{x.created_at}</Moment>
-                    </div>
-                    <p>{x.body}</p>
+                    <a class="bnt-more" href="javascript:void(0)">
+                      More
+                    </a>
                   </div>
                 </div>
               );
             }
           })}
+
+          <div class="timeline-item">
+            <div class="timeline-img"></div>
+
+            <div class="timeline-content timeline-card js--fadeInRight">
+              <div class="timeline-img-header">
+                <h2>Card Title</h2>
+              </div>
+              <div class="date">25 MAY 2016</div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime
+                ipsa ratione omnis alias cupiditate saepe atque totam aperiam
+                sed nulla voluptatem recusandae dolor, nostrum excepturi amet in
+                dolores. Alias, ullam.
+              </p>
+              <a class="bnt-more" href="javascript:void(0)">
+                More
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </div>

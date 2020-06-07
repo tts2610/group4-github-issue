@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import Moment from "react-moment";
 import PopoverStickOnHover from "./PopoverStickOnHover";
@@ -78,7 +78,7 @@ export default function Issue({ issue }) {
                   >
                     <span className="issueTitle">
                       {/* DUY RESEARCH */}
-                      <Link to="/issueDetail">{issue.title}</Link>
+                      <Link to={`/issueDetail/${issue.number}`}> {issue.title}</Link>
                     </span>
                   </PopoverStickOnHover>
                   <span>

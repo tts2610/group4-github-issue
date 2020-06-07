@@ -59,16 +59,7 @@ export default function IssueDetail() {
                     <div class="date">
                       <Moment fromNow>{x.created_at}</Moment>
                     </div>
-                    <p>
-                      {x.body.replace(/```js((.|\n)*)```\n/, (match) => {
-                        console.log("aaa");
-                        return (
-                          <div style={{ backgroundColor: "#f6f8fa" }}>
-                            {console.log(match[1])}
-                          </div>
-                        );
-                      })}
-                    </p>
+                    <p>{x.body}</p>
                   </div>
                 </div>
               );
