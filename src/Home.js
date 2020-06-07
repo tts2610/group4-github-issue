@@ -86,6 +86,7 @@ function Home() {
       return;
     }
     setResult(result);
+    setactivePage(page)
     setPostUrl(issues);
 
     // get Author List
