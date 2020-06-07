@@ -5,6 +5,7 @@ import PopoverStickOnHover from "./PopoverStickOnHover";
 import { Link, NavLink } from "react-router-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import IssueDetail from "../IssueDetail";
+import ReactMarkdown from 'react-markdown';
 
 const popOverStyling = {
   paddingLeft: "10px",
@@ -35,7 +36,7 @@ export default function Issue({ issue }) {
               </span>{" "}
               <span className="overlay-number">#{issue.number}</span>
             </div>
-            <div className="overlay-body mb-3">{issue.body}</div>
+            <div><ReactMarkdown skipHtml="true" rawSourcePos="true" className="markdown-body" source={issue.body}/></div>
             <div>
               {issue.labels.map((x, index) => (
                 <a
