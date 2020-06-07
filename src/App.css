@@ -14,12 +14,8 @@
 #search-bar {
     min-width: 250px;
     font-size: small;
-    transition: transform 0.2s;
 }
 
-#search-bar:hover {
-    transform: width(1.5);
-}
 
 
 /* END-SMITH */
@@ -239,6 +235,7 @@ input[type="search"] {
     /* -webkit-border-radius: 10em;
     -moz-border-radius: 10em; */
     border-radius: 8px;
+    border: 0px solid gray;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     transition: all 0.5s;
