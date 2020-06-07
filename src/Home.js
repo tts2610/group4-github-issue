@@ -91,7 +91,7 @@ function Home() {
       return;
     }
     const issue = { title: title, body: body };
-    const url = `https://api.github.com/repos/${postUrl}/issues`;
+    const url = `https://api.github.com/repos/${postUrl}/issues`; //thay postUrl = "https://api.github.com/repos/tts2610/group4-github-issue/issues"
     const response = await fetch(url, {
       method: "POST",
       headers: {

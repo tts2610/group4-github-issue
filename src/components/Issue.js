@@ -78,7 +78,7 @@ export default function Issue({ issue }) {
                   >
                     <span className="issueTitle">
                       {/* DUY RESEARCH */}
-                      <Link to="/issueDetail">{issue.title}</Link>
+                      <Link to={`/issueDetail/${issue.number}`}> {issue.title}</Link>
                     </span>
                   </PopoverStickOnHover>
                   <span>
