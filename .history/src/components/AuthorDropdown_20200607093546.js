@@ -158,9 +158,8 @@ export default function AuthorDropdown({ authorList, customizeResult }) {
     // console.log(e.target.value);
   };
   const handleOnClick = (user) => {
-    setValue("");
-    setMyList(authorList);
     customizeResult(user);
+    setValue("");
   };
   const CustomMenu = React.forwardRef(
     ({ children, style, className, "aria-labelledby": labeledBy }, ref) => {

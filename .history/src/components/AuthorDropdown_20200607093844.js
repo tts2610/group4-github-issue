@@ -159,7 +159,6 @@ export default function AuthorDropdown({ authorList, customizeResult }) {
   };
   const handleOnClick = (user) => {
     setValue("");
-    setMyList(authorList);
     customizeResult(user);
   };
   const CustomMenu = React.forwardRef(
