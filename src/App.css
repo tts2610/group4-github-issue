@@ -17,7 +17,6 @@
 }
 
 
-
 /* END-SMITH */
 
 
@@ -143,14 +142,15 @@ margin-right: 6%;
     overflow-y: scroll;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     font-size: 13px;
 }
 
 #popover-basic {
     padding: 5px 10px 20px 20px;
-    max-width: 600px;
+    max-width: 700px;
+    max-height: 200px;
 }
 
 #popover-basic .fa-exclamation-circle {
@@ -183,6 +183,13 @@ margin-right: 6%;
     padding-right: 2px;
 }
 
+
+.markdown-body{
+    max-height:100px ;
+    max-width: 600px;
+    overflow-y: scroll;
+    font-size: small;
+}
 
 .pagination {
     display: flex;
