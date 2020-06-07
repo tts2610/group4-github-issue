@@ -1,0 +1,308 @@
+/* SMITH */
+
+#logo-img {
+    border-radius: 100%;
+    padding: 2px;
+    background-color: white;
+}
+
+#logo-img:hover {
+    padding: 0px;
+    background-color: transparent;
+}
+
+#search-bar {
+    min-width: 250px;
+    font-size: small;
+}
+
+#issue-big {
+    margin-left: 6%;
+    font-size: 35px;
+}
+
+#issue-big-number {
+    color: lightgray;
+}
+
+
+/* END-SMITH */
+
+
+/* ALYSSA */
+
+.alySpacing {
+    margin-bottom: 15px;
+}
+
+.alyssa-issue-button {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 6%;
+}
+
+
+/* END-ALYSSA */
+
+
+/* DUY */
+
+
+/* END-DUY */
+
+
+/* SEAN */
+
+.issue-table li.issue:hover {
+    filter: brightness(97%);
+}
+
+.issue-table .filter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.issue-table li.issue i.fa-exclamation-circle {
+    color: green;
+}
+
+@media screen and (max-width: 600px) {
+    .issue-table {
+        transform: scale(0.6);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .issue-table {
+        transform: scale(0.5);
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .issue-table {
+        transform: scale(0.4);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .issue-table {
+        transform: scale(0.8);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .issue-table {
+        transform: scale(0.8);
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .issue-table {
+        transform: scale(1);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .issue-table {
+        transform: scale(0.9);
+    }
+}
+
+.issueCommentNumber {
+    font-size: 13px;
+    font-weight: bolder;
+}
+
+.issueCommentIcon {
+    font-weight: 500 !important;
+}
+
+.commentIssue {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: 500;
+}
+
+.commentIssue:hover {
+    color: blue !important;
+    cursor: pointer;
+}
+
+.issue-table li.issue .issueLabel {
+    text-decoration: none;
+    padding: 5px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.issue-table li.issue .issueTitle:hover {
+    cursor: pointer;
+    color: blue;
+}
+
+.issue-table li.issue .issueTitle {
+    font-weight: 700;
+}
+
+#popover-basic .overlay-body {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: horizontal;
+}
+
+#popover-basic {
+    padding: 5px 10px 20px 20px;
+    max-width: 400px !important;
+}
+
+#popover-basic .fa-exclamation-circle {
+    color: green;
+}
+
+#popover-basic .overlay-header {
+    /* margin-right: 20px; */
+    font-size: 12px;
+    color: grey;
+}
+
+#popover-basic .overlay-title {
+    width: 100px;
+    font-weight: bolder;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+#popover-basic .overlay-title:hover {
+    cursor: pointer;
+    color: blue;
+    text-decoration: none;
+}
+
+.markdown-body {
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; */
+}
+
+.issueLabel {
+    margin-right: 3px;
+    border-radius: 3px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.pagination ul {
+    display: inline-block;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.pagination li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.pagination li a {
+    outline: 0;
+    background-color: transparent;
+    color: black;
+}
+
+.pagination .active {
+    width: 30px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    background-color: black;
+    z-index: 0;
+}
+
+.authorRow:hover {
+    background-color: #f8f9fa;
+    cursor: pointer;
+}
+
+input {
+    outline: none;
+}
+
+input[type="search"] {
+    -webkit-appearance: textfield;
+    -webkit-box-sizing: content-box;
+    font-family: inherit;
+    font-size: 100%;
+}
+
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+    display: none;
+}
+
+input[type="search"] {
+    /* background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center; */
+    /* border: solid 1px #ccc; */
+    padding: 9px 10px 9px 10px;
+    width: 260px;
+    /* -webkit-border-radius: 10em;
+    -moz-border-radius: 10em; */
+    border-radius: 8px;
+    border: 0px solid gray;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    background-color: gray;
+}
+
+input[type="search"]:focus {
+    width: 360px;
+    background-color: #fff;
+    border-color: white;
+    /* -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, 0.5);
+    -moz-box-shadow: 0 0 5px rgba(109, 207, 246, 0.5);
+    box-shadow: 0 0 5px rgba(109, 207, 246, 0.5); */
+}
+
+input:-moz-placeholder {
+    color: white;
+}
+
+input::-webkit-input-placeholder {
+    color: #999;
+}
+
+.clearFilterBtn:hover {
+    color: blue;
+    cursor: pointer;
+}
+
+.clearFilterBtn {
+    color: #586069;
+    font-weight: bolder;
+}
+
+#commentSection pre {
+    /* border: 1px solid #ccc; */
+    background: #f8f8f8;
+}
+
+#commentSection blockquote {
+    color: #666;
+    margin: 0;
+    padding-left: 3em;
+    border-left: 0.5em #eee solid;
+}
+
+
+/* END-SEAN */
