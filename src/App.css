@@ -139,16 +139,18 @@ margin-right: 6%;
 }
 
 #popover-basic .overlay-body {
-    width: 200px;
-    overflow: hidden;
+    width: 550px;
+    overflow-y: scroll;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    font-size: 13px;
 }
 
 #popover-basic {
     padding: 5px 10px 20px 20px;
+    max-width: 600px;
 }
 
 #popover-basic .fa-exclamation-circle {
@@ -173,6 +175,14 @@ margin-right: 6%;
     color: blue;
     text-decoration: none;
 }
+
+.issueLabel{
+    margin-right:3px;
+    border-radius:3px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
 
 .pagination {
     display: flex;
