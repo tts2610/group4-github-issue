@@ -89,7 +89,7 @@ export default function IssueDetail(props) {
       body: JSON.stringify(theIssue),
     });
     console.log("what is response", response);
-    getComment(issue.comments_url);
+    setTimeout(() => getComment(issue.comments_url), 2000);
   };
 
   const handleChange = (e) => {
@@ -101,7 +101,7 @@ export default function IssueDetail(props) {
     getComment(
       issue
         ? issue.comments_url
-        : "https://api.github.com/tts2610/group4-github-issue/issues/30"
+        : "https://api.github.com/facebook/react/issues/19094"
     );
   }, []);
 
