@@ -10,13 +10,10 @@ import {
   Form,
   Spinner,
 } from "react-bootstrap";
-
 import { useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Moment from "react-moment";
-import axios from "axios";
 const ReactMarkdown = require("react-markdown");
-
 const clientId = process.env.REACT_APP_CLIENT_ID;
 
 export default function IssueDetail(props) {
@@ -24,7 +21,6 @@ export default function IssueDetail(props) {
   const [comments, setComments] = useState([]);
   const [textArea, setTextArea] = useState("");
   const [token, setToken] = useState(null);
-  const [isPosting, setIsPosting] = useState(false);
   let { issue } = useLocation();
 
   const getComment = async (thisIssue) => {
@@ -32,20 +28,11 @@ export default function IssueDetail(props) {
       window.location.href = "/";
       return;
     }
-    // let url = thisIssue;
-    // let data = await fetch(url);
-    // let result = await data.json();
-    // console.log("HEY GET COMMENT", result);
-    // setComments(result);
-    console.log(thisIssue);
-    axios
-      .get(thisIssue)
-      .then((res) => {
-        const result = res.data;
-        console.log(result);
-        setComments(result);
-      })
-      .then(() => setIsPosting(false));
+    let url = thisIssue;
+    let data = await fetch(url);
+    let result = await data.json();
+    console.log("HEY GET COMMENT", result);
+    setComments(result);
   };
 
   const getToken = () => {
@@ -76,7 +63,6 @@ export default function IssueDetail(props) {
   };
 
   const postNewComment = async () => {
-    setIsPosting(true);
     setTextArea("");
     const theIssue = { body: textArea }; //input here
     const url = issue.comments_url;
@@ -89,7 +75,7 @@ export default function IssueDetail(props) {
       body: JSON.stringify(theIssue),
     });
     console.log("what is response", response);
-    setTimeout(() => getComment(issue), 2000);
+    getComment(response.url);
   };
 
   const handleChange = (e) => {
@@ -160,9 +146,9 @@ export default function IssueDetail(props) {
           </div>
 
           <div id="commentSection">
-            {comments.map((comment, index) => {
+            {comments.map((comment) => {
               return (
-                <Row className="mb-5" key={index}>
+                <Row className="mb-5">
                   <Col sm={1}>
                     <img
                       src={comment.user.avatar_url}
@@ -221,16 +207,13 @@ export default function IssueDetail(props) {
                       />
                     </Form.Group>
                     <Button variant="success" onClick={postNewComment}>
-                      {isPosting && (
-                        <Spinner
-                          as="span"
-                          animation="border"
-                          size="sm"
-                          role="status"
-                          aria-hidden="true"
-                          className="mr-2"
-                        />
-                      )}
+                      <Spinner
+                        as="span"
+                        animation="border"
+                        size="sm"
+                        role="status"
+                        aria-hidden="true"
+                      />
                       Comment
                     </Button>
                   </Card.Body>

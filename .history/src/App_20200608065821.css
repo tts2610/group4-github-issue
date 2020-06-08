@@ -326,10 +326,5 @@ input::-webkit-input-placeholder {
     color: black;
 }
 
-.spinnerDiv {
-    display: flex;
-    justify-content: center;
-}
-
 
 /* END-SEAN */

@@ -156,6 +156,7 @@
 
 #popover-basic {
     padding: 5px 10px 20px 20px;
+    max-height: 200px;
 }
 
 #popover-basic .fa-exclamation-circle {
@@ -183,7 +184,7 @@
 
 .markdown-body {
     display: inline-block !important;
-    max-height: 120px !important;
+    height: 120px !important;
     width: 200px !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
@@ -324,11 +325,6 @@ input::-webkit-input-placeholder {
 
 #postCommentSection a {
     color: black;
-}
-
-.spinnerDiv {
-    display: flex;
-    justify-content: center;
 }
 
 

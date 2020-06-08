@@ -18,7 +18,7 @@ export default function IssuesTable({
   const [isFiltered, setIsFiltered] = useState(false);
   useEffect(() => {
     setMyResult(result);
-    setTimeout(() => setIsLoading(false), 2000);
+    setTimeout(() => setIsLoading(false), 1000);
   }, [result]);
   const [activePage, setactivePage] = useState(0);
   function handlePageChange(pageNumber) {
@@ -27,17 +27,15 @@ export default function IssuesTable({
   }
 
   function customizeResultByAuthor(author) {
-    setIsLoading(true);
     setIsFiltered(true);
     setMyResult(
       myResult.filter((x) => {
         return x.user.login === author;
       })
     );
-    setTimeout(() => setIsLoading(false), 1000);
+    setTimeout(setIsLoading(false), 1000);
   }
   function customizeResultByLabel(label) {
-    setIsLoading(true);
     setIsFiltered(true);
     let filteredList = [];
     myResult.forEach((issue) => {
@@ -48,13 +46,12 @@ export default function IssuesTable({
 
     setMyResult(filteredList);
 
-    setTimeout(() => setIsLoading(false), 1000);
+    setTimeout(setIsLoading(false), 1000);
   }
   function clearFilter() {
     setIsFiltered(false);
     setMyResult(result);
-    setIsLoading(true);
-    setTimeout(() => setIsLoading(false), 3000);
+    setTimeout(setIsLoading(false), 1000);
   }
 
   if (myResult != null)
@@ -103,12 +100,7 @@ export default function IssuesTable({
                 return <Issue key={index} issue={issue} />;
               })}
             </ul>
-            {isLoading && (
-              <div className="spinnerDiv my-5">
-                <Spinner animation="border" variant="secondary" />
-              </div>
-            )}
-
+            {isLoading && <Spinner animation="border" variant="secondary" />}
             {!isFiltered && (
               <Pagination
                 className="pagination"
