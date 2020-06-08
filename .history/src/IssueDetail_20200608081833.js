@@ -89,7 +89,7 @@ export default function IssueDetail(props) {
       body: JSON.stringify(theIssue),
     });
     console.log("what is response", response);
-    setTimeout(() => getComment(issue), 2000);
+    // setTimeout(() => getComment(issue), 2000);
   };
 
   const handleChange = (e) => {

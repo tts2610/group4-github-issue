@@ -51,10 +51,10 @@ export default function IssuesTable({
     setTimeout(() => setIsLoading(false), 1000);
   }
   function clearFilter() {
+    setIsLoading(true);
     setIsFiltered(false);
     setMyResult(result);
-    setIsLoading(true);
-    setTimeout(() => setIsLoading(false), 3000);
+    setTimeout(() => setIsLoading(false), 1000);
   }
 
   if (myResult != null)

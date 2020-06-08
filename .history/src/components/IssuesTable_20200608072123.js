@@ -18,7 +18,7 @@ export default function IssuesTable({
   const [isFiltered, setIsFiltered] = useState(false);
   useEffect(() => {
     setMyResult(result);
-    setTimeout(() => setIsLoading(false), 2000);
+    setTimeout(() => setIsLoading(false), 1000);
   }, [result]);
   const [activePage, setactivePage] = useState(0);
   function handlePageChange(pageNumber) {
@@ -37,7 +37,6 @@ export default function IssuesTable({
     setTimeout(() => setIsLoading(false), 1000);
   }
   function customizeResultByLabel(label) {
-    setIsLoading(true);
     setIsFiltered(true);
     let filteredList = [];
     myResult.forEach((issue) => {
@@ -53,8 +52,7 @@ export default function IssuesTable({
   function clearFilter() {
     setIsFiltered(false);
     setMyResult(result);
-    setIsLoading(true);
-    setTimeout(() => setIsLoading(false), 3000);
+    setTimeout(() => setIsLoading(false), 1000);
   }
 
   if (myResult != null)

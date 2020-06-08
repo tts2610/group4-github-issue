@@ -10,6 +10,7 @@ import {
   Form,
   Spinner,
 } from "react-bootstrap";
+import { createBrowserHistory } from "history";
 
 import { useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -18,6 +19,8 @@ import axios from "axios";
 const ReactMarkdown = require("react-markdown");
 
 const clientId = process.env.REACT_APP_CLIENT_ID;
+
+const history = createBrowserHistory();
 
 export default function IssueDetail(props) {
   // const [currentIssue, setCurrentIssue] = useState(null)
@@ -89,7 +92,9 @@ export default function IssueDetail(props) {
       body: JSON.stringify(theIssue),
     });
     console.log("what is response", response);
-    setTimeout(() => getComment(issue), 2000);
+    // setTimeout(() => getComment(issue), 2000);
+
+    history.push(issue);
   };
 
   const handleChange = (e) => {

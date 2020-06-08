@@ -10,7 +10,7 @@ import {
   Form,
   Spinner,
 } from "react-bootstrap";
-
+import history from "history";
 import { useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Moment from "react-moment";
@@ -89,7 +89,9 @@ export default function IssueDetail(props) {
       body: JSON.stringify(theIssue),
     });
     console.log("what is response", response);
-    setTimeout(() => getComment(issue), 2000);
+    // setTimeout(() => getComment(issue), 2000);
+    history.pushState(null, "/");
+    history.pushState(null, issue);
   };
 
   const handleChange = (e) => {

@@ -37,7 +37,6 @@ export default function IssuesTable({
     setTimeout(() => setIsLoading(false), 1000);
   }
   function customizeResultByLabel(label) {
-    setIsLoading(true);
     setIsFiltered(true);
     let filteredList = [];
     myResult.forEach((issue) => {
@@ -53,8 +52,7 @@ export default function IssuesTable({
   function clearFilter() {
     setIsFiltered(false);
     setMyResult(result);
-    setIsLoading(true);
-    setTimeout(() => setIsLoading(false), 3000);
+    setTimeout(() => setIsLoading(false), 1000);
   }
 
   if (myResult != null)
