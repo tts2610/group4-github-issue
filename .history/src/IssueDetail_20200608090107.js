@@ -32,6 +32,11 @@ export default function IssueDetail(props) {
       window.location.href = "/";
       return;
     }
+    // let url = thisIssue;
+    // let data = await fetch(url);
+    // let result = await data.json();
+    // console.log("HEY GET COMMENT", result);
+    // setComments(result);
     console.log(thisIssue);
     axios
       .get(thisIssue)
@@ -73,25 +78,19 @@ export default function IssueDetail(props) {
   const postNewComment = async () => {
     setIsPosting(true);
     setTextArea("");
-    const headers = {
-      "Content-Type": "application/x-www-form-urlencoded",
-      Authorization: `token ${token}`,
-    };
-
     const theIssue = { body: textArea }; //input here
     const url = issue.comments_url;
-    axios
-      .post(url, theIssue, { headers: headers })
-      .then((res) => {
-        let newComment = {
-          user: res.data.user,
-          body: res.data.body,
-          created_at: res.data.created_at,
-        };
-        setComments((prev) => [...prev, newComment]);
-        console.log(comments);
-      })
-      .then(() => setIsPosting(false));
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Authorization: `token ${token}`,
+      },
+      body: JSON.stringify(theIssue),
+    });
+    console.log("what is response", response);
+    // getComment(issue.comments_url);
+    window.location.href = issue;
   };
 
   const handleChange = (e) => {

@@ -32,6 +32,11 @@ export default function IssueDetail(props) {
       window.location.href = "/";
       return;
     }
+    // let url = thisIssue;
+    // let data = await fetch(url);
+    // let result = await data.json();
+    // console.log("HEY GET COMMENT", result);
+    // setComments(result);
     console.log(thisIssue);
     axios
       .get(thisIssue)
@@ -82,16 +87,14 @@ export default function IssueDetail(props) {
     const url = issue.comments_url;
     axios
       .post(url, theIssue, { headers: headers })
-      .then((res) => {
-        let newComment = {
-          user: res.data.user,
-          body: res.data.body,
-          created_at: res.data.created_at,
-        };
-        setComments((prev) => [...prev, newComment]);
-        console.log(comments);
-      })
-      .then(() => setIsPosting(false));
+      .then((res) => console.log(res.data.issue_url));
+    // const response = await fetch(url, {
+    //   method: "POST",
+
+    //   body: JSON.stringify(theIssue),
+    // });
+    // console.log("what is response", response);
+    // getComment(issue.comments_url);
   };
 
   const handleChange = (e) => {
